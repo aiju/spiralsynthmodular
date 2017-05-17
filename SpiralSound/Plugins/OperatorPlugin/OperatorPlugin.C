@@ -17,7 +17,7 @@
 */ 
 #include "OperatorPlugin.h"
 #include "OperatorPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 #include "../../NoteTable.h"
 

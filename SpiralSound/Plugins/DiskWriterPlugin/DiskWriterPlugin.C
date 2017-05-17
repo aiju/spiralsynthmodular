@@ -28,7 +28,7 @@
 //#include <limits.h>
 #include "DiskWriterPlugin.h"
 #include "DiskWriterPluginGUI.h"
-#include <FL/fl_file_chooser.H>
+#include <FL/Fl_File_Chooser.H>
 #include "SpiralIcon.xpm"
 
 using namespace std;

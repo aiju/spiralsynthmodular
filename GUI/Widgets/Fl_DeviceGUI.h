@@ -22,9 +22,9 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Button.H>
-#include <FL/Fl_Pixmap.h>
-#include <FL/Fl_Menu_Button.h>
-#include <FL/Fl_Box.h>
+#include <FL/Fl_Pixmap.H>
+#include <FL/Fl_Menu_Button.H>
+#include <FL/Fl_Box.H>
 #include "Fl_DragBar.H"
 #include "SpiralGUI.H"
 #include <iostream>

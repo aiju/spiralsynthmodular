@@ -17,7 +17,7 @@
 */ 
 #include "DelayPlugin.h"
 #include "DelayPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 
 using namespace std;

@@ -24,8 +24,8 @@
 #include <string>
 #include <iostream>
 #include <math.h>
-#include <FL/Fl.h>
-#include <FL/Fl_Group.h>
+#include <FL/Fl.H>
+#include <FL/Fl_Group.H>
 #include "../Sample.h"
 #include "../ChannelHandler.h"
 #include "../../GUI/Widgets/SpiralGUI.H"

@@ -17,7 +17,7 @@
 */ 
 #include "FlipflopPlugin.h"
 #include "FlipflopPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 #include "../../NoteTable.h"
 

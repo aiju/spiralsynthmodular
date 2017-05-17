@@ -17,7 +17,7 @@
 */
 #include "MixSwitchPlugin.h"
 #include "MixSwitchPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include <stdio.h>
 #include "SpiralIcon.xpm"
 

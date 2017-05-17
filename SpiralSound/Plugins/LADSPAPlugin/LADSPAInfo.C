@@ -30,6 +30,7 @@
 #include <stdio.h>
 
 #include <cstdlib>
+#include <cstring>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>

@@ -17,7 +17,7 @@
 */ 
 
 #include "SampleHoldPluginGUI.h"
-#include <FL/fl_draw.h>
+#include <FL/fl_draw.H>
 #include <FL/fl_draw.H>
 
 using namespace std;

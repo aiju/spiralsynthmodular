@@ -44,7 +44,7 @@ class ControllerPluginGUI : public SpiralPluginGUI {
       Fl_Color m_GUIColour;
       class CVGUI {
          public:
-            CVGUI::CVGUI(int n, ControllerPluginGUI *p, Fl_Color SelColour);
+            CVGUI(int n, ControllerPluginGUI *p, Fl_Color SelColour);
             Fl_Group *m_SliderGroup;
             Fl_Input *m_Title, *m_Min, *m_Max;
             Fl_Slider *m_Chan;

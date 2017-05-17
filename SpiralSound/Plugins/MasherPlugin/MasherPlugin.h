@@ -17,7 +17,7 @@
 */ 
 
 #include "../SpiralPlugin.h"
-#include <FL/Fl.h>
+#include <FL/Fl.H>
 
 #ifndef MasherPLUGIN
 #define MasherPLUGIN

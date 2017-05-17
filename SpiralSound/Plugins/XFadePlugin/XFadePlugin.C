@@ -18,7 +18,7 @@
 #include <math.h>
 #include "XFadePlugin.h"
 #include "XFadePluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 
 using namespace std;

@@ -17,7 +17,7 @@
  */
 
 #include "LFOPluginGUI.h"
-#include <FL/fl_draw.h>
+#include <FL/fl_draw.H>
 #include <FL/fl_draw.H>
 #include "../GUI/WS_Sine.h"
 #include "../GUI/WS_Tri.h"

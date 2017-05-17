@@ -17,7 +17,7 @@
 */
 #include "NoisePlugin.h"
 #include "NoisePluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include <limits.h>
 #include "SpiralIcon.xpm"
 

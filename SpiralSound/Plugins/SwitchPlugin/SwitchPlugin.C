@@ -17,7 +17,7 @@
 */
 #include "SwitchPlugin.h"
 #include "SwitchPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 #include "../../NoteTable.h"
 

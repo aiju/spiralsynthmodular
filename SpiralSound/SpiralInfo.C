@@ -19,8 +19,8 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
-#include "FL/fl_draw.h"
-#include "FL/fl_message.h"
+#include "FL/fl_draw.H"
+#include "FL/fl_message.H"
 #include "SpiralInfo.h"
 #include "../SpiralSynthPluginLocation.h"
 

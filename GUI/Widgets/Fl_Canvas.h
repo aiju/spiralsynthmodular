@@ -16,9 +16,9 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 */ 
 
-#include <FL/Fl_Group.h>
-#include <FL/Fl_Output.h>
-#include <FL/Fl_Image.h>
+#include <FL/Fl_Group.H>
+#include <FL/Fl_Output.H>
+#include <FL/Fl_Image.H>
 #include <vector>
 #include <string>
 #include "../../GraphSort.h"

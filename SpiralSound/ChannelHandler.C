@@ -17,6 +17,8 @@
 */ 
 
 #include "ChannelHandler.h"
+#include <cstring>
+#include <cstdlib>
 #include <unistd.h>
 
 using namespace std;

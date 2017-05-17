@@ -18,7 +18,7 @@
 
 #include <stdio.h>
 #include "ControllerPluginGUI.h"
-#include <FL/fl_draw.h>
+#include <FL/fl_draw.H>
 #include <FL/fl_draw.H>
 
 using namespace std;

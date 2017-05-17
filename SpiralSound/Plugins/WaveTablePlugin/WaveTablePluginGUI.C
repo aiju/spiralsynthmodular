@@ -17,7 +17,7 @@
 */
 
 #include "WaveTablePluginGUI.h"
-#include <FL/fl_draw.h>
+#include <FL/fl_draw.H>
 #include <FL/fl_draw.H>
 #include "../GUI/WS_Square.h"
 #include "../GUI/WS_Saw.h"

@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include "LogicPlugin.h"
 #include "LogicPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 #include "../../NoteTable.h"
 

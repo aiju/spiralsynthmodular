@@ -20,7 +20,7 @@
 #define AMPPLUGIN
 
 #include "../SpiralPlugin.h"
-#include <FL/Fl.h>
+#include <FL/Fl.H>
 
 class AmpPlugin : public SpiralPlugin
 {

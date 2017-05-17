@@ -18,7 +18,7 @@
 #include <math.h>
 #include "AnotherFilterPlugin.h"
 #include "AnotherFilterPluginGUI.h"
-#include <FL/Fl_Button.h>
+#include <FL/Fl_Button.H>
 #include "SpiralIcon.xpm"
 
 #define PI 3.141592654
