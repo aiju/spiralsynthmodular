@@ -1,0 +1,388 @@
+SpiralSynthModular File Ver 4
+92 68 864 638 0 0 0 0
+SectionList
+73
+
+Device 1 Plugin 23
+207 242 9 WaveTable 0 217 242 
+1 1 0 0.0314069 1 
+
+Device 2 Plugin 51
+511 152 10 SampleHold 0 0 0
+
+
+Device 4 Plugin 23
+581 37 9 WaveTable 0 591 37 
+1 0 0 0.0133213 1 
+
+Device 5 Plugin 5
+651 35 8 Envelope 0 661 35 
+1 0.0121 0.2601 0 1 1 0.02
+
+Device 6 Plugin 0
+1204 332 3 OSS 0 1214 332 
+
+
+Device 7 Plugin 4
+527 225 10 Oscillator 0 537 225 
+1 3 0 1 0.5 0 0 1 
+
+Device 8 Plugin 5
+624 250 8 Envelope 0 634 250 
+1 0 0.0289 0 1 0.5 0.01
+
+Device 9 Plugin 8
+736 85 12 Stereo Mixer 0 746 85 
+1 2 0.5 0.6 0.5 1.45 0.5 1.37 0.5 
+
+Device 16 Plugin 4
+446 153 10 Oscillator 0 456 153 
+1 3 0 1 0.49 0 0.4906 1 
+
+Device 17 Plugin 4
+381 87 10 Oscillator 0 391 87 
+1 3 0 1 0.5 0 0.03125 1 
+
+Device 18 Plugin 51
+450 84 10 SampleHold 0 0 0
+
+
+Device 19 Plugin 4
+517 86 10 Oscillator 0 527 86 
+1 3 0 1 0.5 0 0 1 
+
+Device 20 Plugin 5
+631 109 8 Envelope 0 641 109 
+1 0 0.16 0 1.4161 0.6 0.01
+
+Device 21 Plugin 5
+487 19 8 Envelope 0 497 19 
+1 0.0036 0.0289 0 0.0529 0.96 0.01
+
+Device 22 Plugin 5
+621 180 8 Envelope 0 631 180 
+1 0 0.16 0 0 0.89 0.01
+
+Device 23 Plugin 4
+377 155 10 Oscillator 0 387 155 
+1 3 0 1 0.5 0 0 1 
+
+Device 24 Plugin 51
+375 19 10 SampleHold 0 0 0
+
+
+Device 25 Plugin 11
+687 178 6 Filter 0 697 178 
+1 3004.28 3.4 0 0 
+
+Device 26 Plugin 4
+306 17 10 Oscillator 0 316 17 
+1 3 0 1 0.5 0 1.45626e-38 1 
+
+Device 28 Plugin 14
+806 86 4 Echo 0 816 86 
+1 0.453 0.25 
+
+Device 29 Plugin 1
+120 474 5 Scope 1 130 474 
+
+
+Device 30 Plugin 23
+764 310 9 WaveTable 0 774 310 
+1 2 -2 1 1 
+
+Device 31 Plugin 5
+689 308 8 Envelope 0 699 308 
+1 0 0.16 0.23 1 0.15 0.01
+
+Device 32 Plugin 7
+1092 336 5 Mixer 0 1102 336 
+2 4 0.89 0.89 0.12 1.4 
+
+Device 33 Plugin 4
+297 402 10 Oscillator 0 307 402 
+1 3 0 1 0.5 0 0 1 
+
+Device 34 Plugin 51
+435 399 10 SampleHold 0 0 0
+
+
+Device 35 Plugin 9
+564 399 3 Amp 0 574 399 
+1 0.8679 0.9434 
+
+Device 36 Plugin 13
+866 346 11 Moog Filter 0 876 346 
+1 0 0.34807 
+
+Device 37 Plugin 23
+650 378 9 WaveTable 0 660 378 
+1 0 -3 0.0298993 1 
+
+Device 38 Plugin 23
+718 377 9 WaveTable 0 728 377 
+1 1 -3 0.000549012 1 
+
+Device 40 Plugin 9
+933 347 3 Amp 0 943 347 
+1 0.0377 0 
+
+Device 44 Plugin 24
+369 398 9 Note Snap 0 379 398 
+1
+1 1 1 1 1 1 1 1 1 1 1 1 
+
+Device 47 Plugin 9
+500 399 3 Amp 0 510 399 
+1 0.0377 0 
+
+Device 56 Plugin 23
+683 751 9 WaveTable 0 693 751 
+1 0 -1 0.842148 1 
+
+Device 57 Plugin 23
+895 731 9 WaveTable 0 905 731 
+1 0 3 0.0152308 1 
+
+Device 58 Plugin 5
+757 748 8 Envelope 0 767 748 
+1 1.1664 2.89 1 1 1 0.01
+
+Device 59 Plugin 4
+470 712 10 Oscillator 0 480 712 
+1 3 0 1 0.5 0 0 1 
+
+Device 61 Plugin 51
+538 713 10 SampleHold 0 0 0
+
+
+Device 62 Plugin 5
+962 720 8 Envelope 0 972 720 
+1 2.3409 4.3681 0.17 4.8841 0.81 0.01
+
+Device 64 Plugin 20
+603 714 6 Smooth 0 613 714 
+1 0.5 0.5
+
+Device 65 Plugin 51
+600 650 10 SampleHold 0 0 0
+
+
+Device 66 Plugin 23
+538 648 9 WaveTable 0 548 648 
+1 0 0 1 1 
+
+Device 67 Plugin 1
+664 651 5 Scope 0 674 651 
+
+
+Device 70 Plugin 7
+830 731 5 Mixer 0 840 731 
+2 4 0.07 0.96 1 1 
+
+Device 71 Plugin 14
+1032 732 4 Echo 0 1042 732 
+1 0.17 0.71 
+
+Device 74 Plugin 4
+592 482 10 Oscillator 0 602 482 
+1 3 0 1 0.91 0 2.98023e-09 1 
+
+Device 75 Plugin 5
+958 504 8 Envelope 0 968 504 
+1 0 0.7225 0.94 4.6225 0.58 0.01
+
+Device 80 Plugin 51
+659 483 10 SampleHold 0 0 0
+
+
+Device 81 Plugin 13
+886 505 11 Moog Filter 0 896 505 
+1 0.0566 0.2322 
+
+Device 83 Plugin 5
+810 547 8 Envelope 0 820 547 
+1 0 0.4624 0.06 9 0.75 0.74
+
+Device 85 Plugin 7
+810 480 5 Mixer 0 820 480 
+2 4 1 1 1 1 
+
+Device 86 Plugin 14
+1026 504 4 Echo 0 1036 504 
+1 0.906 0.39 
+
+Device 87 Plugin 20
+784 374 6 Smooth 0 794 374 
+1 0.5 0.5
+
+Device 88 Plugin 23
+727 483 9 WaveTable 0 737 483 
+1 2 -1 1 1 
+
+Device 89 Plugin 23
+732 552 9 WaveTable 0 742 552 
+1 2 -1 1.00333 1 
+
+Device 93 Plugin -1
+76 3 0  0 0 0
+1 17 Soil and the crop
+
+
+Device 94 Plugin -1
+106 18 0  0 0 0
+1 10 by nebogeo
+
+
+Device 95 Plugin -1
+68 47 0  0 0 0
+1 47 Constantly changing random music, you'll either
+
+
+Device 96 Plugin -1
+70 60 0  0 0 0
+1 27 love the idea or hate it...
+
+
+Device 97 Plugin -1
+69 73 0  0 0 0
+1 44 The only certain thing is that it won't play
+
+
+Device 98 Plugin -1
+69 86 0  0 0 0
+1 21 the same thing twice.
+
+
+Device 99 Plugin -1
+524 -21 0  0 0 0
+1 20 Percussion generator
+
+
+Device 100 Plugin -1
+633 22 0  0 0 0
+1 9 Bass drum
+
+
+Device 101 Plugin -1
+643 97 0  0 0 0
+1 7 Snare 1
+
+
+Device 102 Plugin -1
+645 169 0  0 0 0
+1 7 Snare 2
+
+
+Device 103 Plugin -1
+643 239 0  0 0 0
+1 6 Hi hat
+
+
+Device 104 Plugin -1
+414 381 0  0 0 0
+1 49 Pitch generation, the bass and "lead" share this.
+
+
+Device 105 Plugin -1
+468 318 0  0 0 0
+1 42 Changes of note occur on bass drum hits ->
+
+
+Device 106 Plugin -1
+775 297 0  0 0 0
+1 4 Bass
+
+
+Device 107 Plugin -1
+763 460 0  0 0 0
+1 11 Lead melody
+
+
+Device 108 Plugin -1
+610 631 0  0 0 0
+1 49 Strange BG noises made with a bit of FM synthesis
+
+
+Device 109 Plugin -1
+449 559 0  0 0 0
+1 47 <- gives the BG noises a bit of matching rhythm
+
+
+Device 110 Plugin -1
+190 223 0  0 0 0
+1 23 Master clock oscillator
+
+
+-1 0 70
+1 0 0 0 2 0 1 0
+4 0 0 0 5 0 1 0
+5 0 1 0 9 0 0 0
+8 0 1 0 9 0 1 0
+7 0 0 0 8 0 1 0
+1 0 0 0 8 0 0 0
+16 0 0 0 2 0 0 0
+20 0 1 0 9 0 2 0
+19 0 0 0 20 0 1 0
+18 0 0 0 20 0 0 0
+17 0 0 0 18 0 0 0
+1 0 0 0 18 0 1 0
+21 0 0 0 4 0 0 0
+22 0 1 0 25 0 0 0
+25 0 0 0 9 0 3 0
+23 0 0 0 22 0 1 0
+26 0 0 0 24 0 0 0
+1 0 0 0 24 0 1 0
+22 0 0 0 25 0 1 0
+24 0 0 0 5 0 0 0
+24 0 0 0 21 0 0 0
+2 0 0 0 22 0 0 0
+9 0 0 0 28 0 0 0
+35 0 0 0 30 0 0 0
+28 0 0 0 32 0 1 0
+31 0 0 0 36 0 1 0
+30 0 0 0 36 0 0 0
+37 0 0 0 38 0 0 0
+36 0 0 0 40 0 0 0
+1 0 0 0 31 0 0 0
+5 0 0 0 34 0 1 0
+44 0 0 0 34 0 0 0
+33 0 0 0 44 0 0 0
+34 0 0 0 47 0 0 0
+47 0 0 0 35 0 0 0
+56 0 0 0 58 0 1 0
+59 0 0 0 61 0 0 0
+61 0 0 0 64 0 0 0
+64 0 0 0 56 0 0 0
+57 0 0 0 62 0 1 0
+61 0 0 0 65 0 1 0
+66 0 0 0 65 0 0 0
+65 0 0 0 67 0 0 0
+67 0 0 0 58 0 0 0
+67 0 0 0 62 0 0 0
+1 0 0 0 61 0 1 0
+58 0 1 0 70 0 1 0
+70 0 0 0 57 0 0 0
+64 0 0 0 70 0 0 0
+62 0 1 0 71 0 0 0
+71 0 0 0 32 0 2 0
+80 0 0 0 75 0 0 0
+74 0 0 0 80 0 0 0
+1 0 0 0 80 0 1 0
+80 0 0 0 83 0 0 0
+85 0 0 0 81 0 0 0
+81 0 0 0 75 0 1 0
+75 0 1 0 86 0 0 0
+86 0 0 0 32 0 0 0
+40 0 0 0 32 0 3 0
+38 0 0 0 87 0 0 0
+87 0 0 0 40 0 1 0
+89 0 0 0 85 0 1 0
+88 0 0 0 85 0 0 0
+35 0 0 0 89 0 0 0
+35 0 0 0 88 0 0 0
+83 0 0 0 81 0 1 0
+32 0 0 0 6 0 0 1
+32 0 0 0 29 0 0 0
+32 0 0 0 6 0 1 1
+

@@ -1,0 +1,74 @@
+SpiralSynthModular File Ver 4
+298 115 700 600 0 0 0 0
+SectionList
+13
+
+Device 3 Plugin 0
+691 120 3 OSS 0 701 120 
+
+
+Device 5 Plugin 5
+478 116 8 Envelope 0 488 116 
+1 0.0289 0.3249 0 0 0.51 0
+
+Device 7 Plugin 8
+621 120 12 Stereo Mixer 0 631 120 
+1 1 0.5 1 0.5 1 0.5 1 0.5 
+
+Device 9 Plugin 14
+551 118 4 Echo 0 561 118 
+1 0.396 0.62 
+
+Device 12 Plugin 13
+411 117 11 Moog Filter 0 421 117 
+1 1 0.43934 
+
+Device 20 Plugin 4
+158 52 10 Oscillator 0 168 52 
+1 3 -3 0.119661 0.5 0 2.98023e-09 1 
+
+Device 25 Plugin -1
+111 20 0  0 0 0
+1 36 A patch that generates random events
+
+
+Device 26 Plugin 51
+247 86 10 SampleHold 0 0 0
+
+
+Device 27 Plugin 23
+83 121 9 WaveTable 0 93 121 
+1 0 1 0.0326008 1 
+
+Device 28 Plugin 6
+158 119 8 Splitter 0 0 0
+
+
+Device 29 Plugin 23
+338 116 9 WaveTable 0 348 116 
+1 1 -3 0.933262 1 
+
+Device 30 Plugin 4
+156 189 10 Oscillator 0 166 189 
+1 3 0 1 0.5 0 1.70555e-38 1 
+
+Device 31 Plugin 51
+247 176 10 SampleHold 0 0 0
+
+
+-1 0 14
+7 0 0 0 3 0 0 0
+7 0 1 0 3 0 1 0
+9 0 0 0 7 0 0 0
+12 0 0 0 5 0 1 0
+5 0 1 0 9 0 0 0
+27 0 0 0 28 0 0 0
+20 0 0 0 26 0 0 0
+29 0 0 0 12 0 0 0
+28 0 2 0 31 0 1 0
+30 0 0 0 31 0 0 0
+31 0 0 0 12 0 1 0
+28 0 0 0 5 0 0 0
+28 0 1 0 26 0 1 0
+26 0 0 0 29 0 0 0
+

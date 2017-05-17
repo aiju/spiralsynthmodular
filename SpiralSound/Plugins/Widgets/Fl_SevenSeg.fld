@@ -1,0 +1,214 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0010 
+header_name {.H} 
+code_name {.cxx} 
+gridx 5 
+gridy 5 
+snap 3
+decl {\#include <FL/fl_draw.H>} {public
+} 
+
+decl {\#include <FL/Fl_Widget.H>} {public
+} 
+
+class Fl_SevenSeg {open : {public Fl_Widget}
+} {
+  decl {int digit,decpt,segwidth;} {}
+  Function {Fl_SevenSeg(int x,int y,int w,int h):Fl_Widget(x,y,w,h)} {} {
+    code {color2(FL_BLACK);
+	color(FL_RED);
+	digit = 8;
+	segwidth = (w-8)/13;
+	segwidth = segwidth<(h-8)/13 ?(h-8)/13: segwidth;
+        if (segwidth<1) segwidth =1;} {}
+  }
+  Function {~Fl_SevenSeg(void)} {} {}
+  Function {value(int v)} {return_type void
+  } {
+    code {if (v <0) digit = -1;
+	else
+	if (v>9) digit = 9;
+	else
+	digit = v;
+	if (active()) redraw();} {}
+  }
+  Function {value(char c)} {return_type void
+  } {
+    code {int v = c - '0';
+	value(v);} {}
+  }
+  Function {value(void)} {return_type {const int}
+  } {
+    code {return digit;} {}
+  }
+  Function {dp(int onoff)} {return_type void
+  } {
+    code {decpt =(onoff!=0);} {}
+  }
+  Function {dp(void)} {return_type {const int}
+  } {
+    code {return decpt;} {}
+  }
+  Function {bar_width(void)} {return_type {const int}
+  } {
+    code {return segwidth;} {}
+  }
+  Function {bar_width(int w)} {return_type void
+  } {
+    code {segwidth = w > 2 ? w:2;
+	if (active()) redraw();} {}
+  }
+  decl {// PRIVATE METHODS} {}
+  Function {draw()} {open private
+  } {
+    code {uchar r,g,b;
+int	val;
+  
+	draw_box();
+	int xx = x()+4;
+	int ww =w()-8;
+	int yy = y()+4;
+	int hh = h()-8;
+	fl_clip(xx,yy,ww,hh);
+	fl_color(color2());
+	fl_rectf(xx,yy,ww,hh);
+	if (digit == -1) return;
+	Fl::get_color(color(),r,g,b);
+	if (!active())
+	{
+		val = 64+(int)r/4; r = val > 255 ? 255:val;
+		val = 64+(int)g/4; g = val > 255 ? 255:val;
+		val = 64+(int)b/4; b = val > 255 ? 255:val;
+	}
+	fl_color(r,g,b);
+	fl_line_style(FL_SOLID|FL_CAP_ROUND,segwidth);
+	switch(digit)
+	{
+		case 0:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			draw_seg_e(xx,yy,ww,hh);
+			draw_seg_f(xx,yy,ww,hh);
+			break;
+		case 1:
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			break;
+		case 2:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			draw_seg_e(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			break;
+		case 3:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			break;
+		case 4:
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_f(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			break;
+		case 5:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			draw_seg_f(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			break;
+		case 6:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			draw_seg_e(xx,yy,ww,hh);
+			draw_seg_f(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			break;
+		case 7:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			break;
+		case 8:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			draw_seg_e(xx,yy,ww,hh);
+			draw_seg_f(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			break;
+		case 9:
+			draw_seg_a(xx,yy,ww,hh);
+			draw_seg_b(xx,yy,ww,hh);
+			draw_seg_c(xx,yy,ww,hh);
+			draw_seg_d(xx,yy,ww,hh);
+			draw_seg_g(xx,yy,ww,hh);
+			draw_seg_f(xx,yy,ww,hh);
+			break;
+	}
+	fl_line_style(FL_SOLID,1);
+	if (decpt)
+	{
+		
+	}
+	fl_pop_clip();} {selected
+    }
+  }
+  Function {draw_seg_a(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+2*segwidth+1;
+	int y1 = yy+segwidth;
+	int x2 = xx+ww-2*segwidth-1;
+	fl_line(x1,y1,x2,y1);} {}
+  }
+  Function {draw_seg_b(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+ww-segwidth;
+	int y1 = yy+(3*segwidth)/2+1;
+	int y2 = y1+hh/2-2*segwidth-1;
+	fl_line(x1,y1,x1,y2);} {}
+  }
+  Function {draw_seg_c(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+ww-segwidth;
+	int y1 = yy+(hh+segwidth)/2+1;
+	int y2 = y1+hh/2-2*segwidth-1;
+	fl_line(x1,y1,x1,y2);} {}
+  }
+  Function {draw_seg_d(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+2*segwidth+1;
+	int y1 = yy+hh-segwidth;
+	int x2 = xx+ww-2*segwidth-1;
+	fl_line(x1,y1,x2,y1);} {}
+  }
+  Function {draw_seg_e(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+segwidth;
+	int y1 = yy+(hh+segwidth)/2+1;
+	int y2 = y1+hh/2-2*segwidth-1;
+	fl_line(x1,y1,x1,y2);} {}
+  }
+  Function {draw_seg_f(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+segwidth;
+	int y1 = yy+(3*segwidth)/2+1;
+	int y2 = y1+hh/2-2*segwidth-1;
+	fl_line(x1,y1,x1,y2);} {}
+  }
+  Function {draw_seg_g(int xx,int yy,int ww,int hh)} {private return_type void
+  } {
+    code {int x1 = xx+2*segwidth+1;
+	int y1 = yy+(hh-segwidth/2)/2;
+	int x2 = xx+ww-2*segwidth-1;
+	fl_line(x1,y1,x2,y1);} {}
+  }
+} 

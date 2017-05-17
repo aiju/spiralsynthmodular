@@ -1,0 +1,96 @@
+SpiralSynthModular File Ver 4
+298 115 700 600 0 0 0 0
+SectionList
+16
+
+Device 0 Plugin 86
+156 123 11 Distributor 0 0 0
+
+
+Device 2 Plugin 23
+289 282 9 WaveTable 0 299 282 
+1 0 0 1 1 
+
+Device 3 Plugin 23
+285 84 9 WaveTable 0 295 84 
+1 0 0 1 1 
+
+Device 4 Plugin 23
+287 148 9 WaveTable 0 297 148 
+1 0 0 1 1 
+
+Device 5 Plugin 23
+289 215 9 WaveTable 0 299 215 
+1 0 0 1 1 
+
+Device 6 Plugin 5
+364 272 8 Envelope 0 374 272 
+1 0 0.5 1 1 0.5 0.01
+
+Device 7 Plugin 5
+364 208 8 Envelope 0 374 208 
+1 0 0.5 1 1 0.5 0.01
+
+Device 8 Plugin 5
+364 142 8 Envelope 0 374 142 
+1 0 0.5 1 1 0.5 0.01
+
+Device 9 Plugin 5
+365 79 8 Envelope 0 375 79 
+1 0 0.5 1 1 0.5 0.01
+
+Device 10 Plugin 8
+460 161 12 Stereo Mixer 0 470 161 
+1 1 0.5 1 0.5 1 0.5 1 0.5 
+
+Device 11 Plugin 0
+529 162 3 OSS 0 539 162 
+
+
+Device 12 Plugin -1
+78 14 0  0 0 0
+1 48 This patch uses the distributor plugin to create
+
+
+Device 13 Plugin -1
+77 30 0  0 0 0
+1 24 a polyphonic synthesizer
+
+
+Device 15 Plugin -1
+91 348 0  0 0 0
+1 46 The distributor sends each note recieved to a 
+
+
+Device 18 Plugin -1
+81 361 0  0 0 0
+1 51 different identical wavetable/envelope synth voice.
+
+
+Device 20 Plugin 40
+75 123 8 Keyboard 0 85 123 
+0
+
+
+-1 0 20
+10 0 0 0 11 0 0 0
+10 0 1 0 11 0 1 0
+0 0 0 0 3 0 0 0
+0 0 2 0 4 0 0 0
+0 0 4 0 5 0 0 0
+0 0 6 0 2 0 0 0
+3 0 0 0 9 0 1 0
+4 0 0 0 8 0 1 0
+5 0 0 0 7 0 1 0
+2 0 0 0 6 0 1 0
+0 0 1 0 9 0 0 0
+0 0 3 0 8 0 0 0
+0 0 5 0 7 0 0 0
+0 0 7 0 6 0 0 0
+6 0 1 0 10 0 3 0
+9 0 1 0 10 0 0 0
+8 0 1 0 10 0 1 0
+7 0 1 0 10 0 2 0
+20 0 0 0 0 0 0 0
+20 0 1 0 0 0 1 0
+

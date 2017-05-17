@@ -1,0 +1,59 @@
+SpiralSynthModular File Ver 4
+154 89 700 600 0 0 0 0
+SectionList
+10
+
+Device 0 Plugin 23
+228 105 9 WaveTable 0 238 105 
+1 3 0 1 1 
+
+Device 2 Plugin 5
+153 138 8 Envelope 0 163 138 
+1 0.0289 0.16 0.08 1.0404 0.58 0.01
+
+Device 3 Plugin 13
+301 106 11 Moog Filter 0 311 106 
+1 0 0.37137 
+
+Device 4 Plugin 0
+396 111 3 OSS 0 406 111 
+
+
+Device 7 Plugin -1
+77 8 0  0 0 0
+1 10 Tutorial 7
+
+
+Device 8 Plugin -1
+77 22 0  0 0 0
+1 37 The subtractive synth from tutorial 3
+
+
+Device 31 Plugin 40
+82 98 8 Keyboard 0 92 98 
+0
+
+
+Device 32 Plugin 22
+69 201 6 LADSPA 1 79 201 
+8 0 1 1216 8 1 0.1 0 0 -70 -70 -70 -1 300 360 1 1 0 0 0 1 1 1 1 1 1 1 1 1 121.497 90.075 0.81 0.719 -16.38 0 -3.92 -0.000544915 
+
+Device 33 Plugin -1
+79 35 0  0 0 0
+1 35 with a LADSPA reverb effect plugin.
+
+
+Device 34 Plugin -1
+129 72 0  0 0 0
+1 65 This won't do much exiting if you don't have LADSPA installed. :)
+
+
+-1 0 7
+2 0 0 0 3 0 1 0
+0 0 0 0 3 0 0 0
+31 0 0 0 0 0 0 0
+31 0 1 0 2 0 0 0
+3 0 0 0 32 0 7 0
+32 0 0 0 4 0 0 0
+32 0 1 0 4 0 1 0
+

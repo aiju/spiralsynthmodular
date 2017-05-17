@@ -1,0 +1,136 @@
+SpiralSynthModular File Ver 4
+64 80 700 600 0 0 0 0
+SectionList
+26
+
+Device 0 Plugin 0
+409 82 3 OSS 1 419 82 
+
+
+Device 1 Plugin 23
+79 82 9 WaveTable 1 89 82 
+1 0 0 1 1 
+
+Device 2 Plugin 40
+75 246 8 Keyboard 1 85 246 
+0
+
+
+Device 3 Plugin 5
+241 411 8 Envelope 1 251 411 
+1 0 0.5 0 1 0.5 0.01
+
+Device 4 Plugin -1
+218 1 0  0 0 0
+1 36 Tutorial 1 - First Principles of SSM
+
+
+Device 5 Plugin -1
+119 67 0  0 0 0
+1 35 Wavetable - creates an audio signal
+
+
+Device 6 Plugin -1
+386 67 0  0 0 0
+1 30 Output signal to the soundcard
+
+
+Device 7 Plugin -1
+87 197 0  0 0 0
+1 53 Try manually changing the frequency, or the waveshape
+
+
+Device 8 Plugin -1
+182 230 0  0 0 0
+1 20 Add keyboard control
+
+
+Device 9 Plugin -1
+401 254 0  0 0 0
+1 16 <-- Connect this
+
+
+Device 10 Plugin -1
+398 266 0  0 0 0
+1 27 to the frequency input port
+
+
+Device 11 Plugin -1
+400 276 0  0 0 0
+1 16 on the WaveTable
+
+
+Device 12 Plugin -1
+70 344 0  0 0 0
+1 56 You should now be able to play notes on your PC keyboard
+
+
+Device 13 Plugin -1
+74 356 0  0 0 0
+1 42 or by clicking on the keys with the mouse.
+
+
+Device 14 Plugin -1
+71 403 0  0 0 0
+1 36 Now connect this port to the trigger
+
+
+Device 15 Plugin -1
+116 416 0  0 0 0
+1 21 on the KeyboardPlugin
+
+
+Device 16 Plugin -1
+224 418 0  0 0 0
+1 3 -->
+
+
+Device 17 Plugin -1
+180 378 0  0 0 0
+1 55 Now disconnect the Wavetable output from the OSS plugin
+
+
+Device 18 Plugin -1
+66 41 0  0 0 0
+1 57 I am a comment, drag to move me, double click to edit me.
+
+
+Device 19 Plugin -1
+64 14 0  0 0 0
+1 103 Build connections by clicking the left mouse on the ports, disconnect them by clicking the right mouse.
+
+
+Device 20 Plugin -1
+66 27 0  0 0 0
+1 88 You can delete or rename plugins by right clicking over them to display the plugin menu.
+
+
+Device 21 Plugin -1
+69 430 0  0 0 0
+1 36 This one to the WaveTable output -->
+
+
+Device 22 Plugin -1
+405 430 0  0 0 0
+1 27 <-- Connect this out to the
+
+
+Device 23 Plugin -1
+413 443 0  0 0 0
+1 26 OSS plugin left/right outs
+
+
+Device 24 Plugin -1
+110 556 0  0 0 0
+1 86 You have now made a simple synth! Play notes and try changing the envelope parameters.
+
+
+Device 25 Plugin -1
+167 528 0  0 0 0
+1 53 The envelope shapes the volume of the note over time.
+
+
+-1 0 2
+1 0 0 0 0 0 0 1
+1 0 0 0 0 0 1 1
+

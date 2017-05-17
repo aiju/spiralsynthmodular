@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ $# -gt 0 ] ; then
+    if ! [ -e links/$1.so ] ; then
+        echo Creating link for $1
+        ln -s ../SpiralSound/Plugins/$1/$1.so links/$1.so
+    fi
+else
+    if ! [ -d links ] ; then
+        if [ -e links ] ; then
+            echo A file \"links\" alredy exists, can\'t create the directory
+            exit
+        fi
+        mkdir links
+    fi
+    xargs -n 1 $0 < SpiralSound/PluginList.txt
+fi

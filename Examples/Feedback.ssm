@@ -1,0 +1,78 @@
+SpiralSynthModular File Ver 4
+298 115 700 600 0 0 0 0
+SectionList
+14
+
+Device 0 Plugin 0
+465 211 3 OSS 0 475 211 
+
+
+Device 2 Plugin 4
+318 104 10 Oscillator 0 328 104 
+1 2 2 0.0149791 0.53 0 0.019 0.299 
+
+Device 4 Plugin 6
+110 224 8 Splitter 0 0 0
+
+
+Device 5 Plugin 1
+121 301 5 Scope 1 131 301 
+
+
+Device 7 Plugin 9
+250 104 3 Amp 0 260 104 
+1 0.1132 0.0377 
+
+Device 8 Plugin 9
+390 102 3 Amp 0 400 102 
+1 1.1698 0.566 
+
+Device 12 Plugin 8
+398 211 12 Stereo Mixer 0 408 211 
+1 0.27 0.5 0.8 0.5 1 0.5 1 0.5 
+
+Device 13 Plugin -1
+70 6 0  0 0 0
+1 40 This uses SSM's ability to feedback data
+
+
+Device 14 Plugin -1
+71 19 0  0 0 0
+1 27 from one plugin to another.
+
+
+Device 15 Plugin -1
+66 178 0  0 0 0
+1 37 This is where the signal is fed back.
+
+
+Device 16 Plugin -1
+70 33 0  0 0 0
+1 41 Feedback generates quite a chaotic sound,
+
+
+Device 17 Plugin -1
+71 45 0  0 0 0
+1 36 try changing some of the parameters.
+
+
+Device 18 Plugin 23
+178 104 9 WaveTable 0 188 104 
+1 0 -3 0.158165 1 
+
+Device 19 Plugin 23
+461 103 9 WaveTable 0 471 103 
+1 0 -1 0.202252 1 
+
+-1 0 10
+7 0 0 0 2 0 0 0
+2 0 0 0 8 0 0 0
+4 0 0 0 5 0 0 0
+12 0 0 0 0 0 0 0
+12 0 1 0 0 0 1 0
+5 0 0 0 12 0 0 0
+18 0 0 0 7 0 0 0
+8 0 0 0 19 0 0 0
+19 0 0 0 4 0 0 0
+4 0 1 0 18 0 0 0
+

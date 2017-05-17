@@ -1,0 +1,104 @@
+SpiralSynthModular File Ver 4
+64 80 700 600 0 0 0 0
+SectionList
+19
+
+Device 2 Plugin 0
+398 586 3 OSS 0 408 586 
+
+
+Device 3 Plugin 23
+248 586 9 WaveTable 0 258 586 
+1 0 0 1 1 
+
+Device 38 Plugin 5
+323 586 8 Envelope 0 333 586 
+1 0.0529 0.8281 0 0 0.5 0.01
+
+Device 53 Plugin 1
+197 301 5 Scope 1 207 301 
+
+
+Device 55 Plugin 1
+195 111 5 Scope 1 205 111 
+
+
+Device 56 Plugin 1
+199 450 5 Scope 1 209 450 
+
+
+Device 58 Plugin -1
+67 9 0  0 0 0
+1 32 Tutorial 2 - CV's and Audio data
+
+
+Device 59 Plugin -1
+66 25 0  0 0 0
+1 107 This is a closer look at what is going on in tutorial 1. It's exactly the same design, but with some scopes
+
+
+Device 60 Plugin -1
+68 39 0  0 0 0
+1 60 to see what is beaing passed through the network of plugins.
+
+
+Device 64 Plugin -1
+67 54 0  0 0 0
+1 95 All data in SSM is treated the same, anything can be plugged into anything else. However, it is
+
+
+Device 65 Plugin -1
+68 68 0  0 0 0
+1 50 important to know the different uses of this data.
+
+
+Device 66 Plugin -1
+68 91 0  0 0 0
+1 105 In this scope, you will see the output of the WaveTable oscillator, which is used here to generate audio.
+
+
+Device 67 Plugin -1
+76 240 0  0 0 0
+1 97 Now press a key. What you see is the value going from zero to a high value and then back to zero.
+
+
+Device 69 Plugin -1
+75 267 0  0 0 0
+1 99 This data is CV, or Control Voltage data (the name comes from old synths that acually used voltages
+
+
+Device 70 Plugin -1
+78 280 0  0 0 0
+1 30 to control bits of the synth.)
+
+
+Device 71 Plugin -1
+-99 382 0  0 0 0
+1 14 other plugins.
+
+
+Device 73 Plugin -1
+227 432 0  0 0 0
+1 38 This scope displays the actual output.
+
+
+Device 76 Plugin 40
+177 586 8 Keyboard 0 187 586 
+0
+
+
+Device 77 Plugin -1
+75 255 0  0 0 0
+1 79 This is the signal that is used to shape or "modulate" the volume of the audio.
+
+
+-1 0 8
+38 0 1 0 2 0 0 1
+38 0 1 0 2 0 1 1
+76 0 0 0 3 0 0 0
+3 0 0 0 38 0 1 0
+76 0 1 0 38 0 0 0
+3 0 0 0 55 0 0 0
+38 0 0 0 53 0 0 0
+38 0 1 0 56 0 0 0
+

@@ -1,0 +1,109 @@
+SpiralSynthModular File Ver 4
+298 115 700 600 0 0 0 0
+SectionList
+19
+
+Device 1 Plugin 4
+315 247 10 Oscillator 0 325 247 
+1 2 -1 1 0 0 0 1 
+
+Device 2 Plugin 4
+313 179 10 Oscillator 0 323 179 
+1 2 0 0.992771 0 0 0 1 
+
+Device 3 Plugin 4
+313 111 10 Oscillator 0 323 111 
+1 2 1 1 0.5 0 0 1 
+
+Device 4 Plugin 6
+244 113 8 Splitter 0 0 0
+
+
+Device 6 Plugin 7
+457 181 5 Mixer 0 467 181 
+2 4 0.77 0.67 0.31 1 
+
+Device 7 Plugin 13
+529 180 11 Moog Filter 0 539 180 
+1 0.6981 0.34483 
+
+Device 8 Plugin 5
+384 247 8 Envelope 0 394 247 
+1 0 0.9216 0.45 1 0.42 0.01
+
+Device 9 Plugin 5
+385 179 8 Envelope 0 395 179 
+1 0 0.3844 0.08 1 0.5 0.01
+
+Device 10 Plugin 5
+385 112 8 Envelope 0 395 112 
+1 0 0.9216 1 1.4161 0.28 0.01
+
+Device 11 Plugin 6
+187 210 8 Splitter 0 0 0
+
+
+Device 13 Plugin 5
+455 245 8 Envelope 0 465 245 
+1 0.9216 0.2601 0 3.0625 0.6 0.01
+
+Device 15 Plugin 14
+600 181 4 Echo 0 610 181 
+1 0.377 0.39 
+
+Device 17 Plugin 8
+742 183 12 Stereo Mixer 0 752 183 
+1 1 0.5 1 0.5 1 0.5 1 0.5 
+
+Device 18 Plugin 0
+814 181 3 OSS 0 824 181 
+
+
+Device 19 Plugin 4
+243 44 10 Oscillator 0 253 44 
+1 2 -3 0.0167674 0.5 0 0 1 
+
+Device 20 Plugin 1
+671 182 5 Scope 0 681 182 
+
+
+Device 21 Plugin 20
+172 115 6 Smooth 0 182 115 
+1 0.114 0.151
+
+Device 22 Plugin -1
+79 10 0  0 0 0
+1 63 SpiralSynth, with a moog filter. (and stuck in monophonic mode)
+
+
+Device 23 Plugin 40
+77 178 8 Keyboard 0 87 178 
+0
+
+
+-1 0 24
+4 0 0 0 3 0 0 0
+3 0 0 0 10 0 1 0
+2 0 0 0 9 0 1 0
+1 0 0 0 8 0 1 0
+8 0 1 0 6 0 2 0
+9 0 1 0 6 0 1 0
+10 0 1 0 6 0 0 0
+6 0 0 0 7 0 0 0
+13 0 0 0 7 0 1 0
+7 0 0 0 15 0 0 0
+17 0 0 0 18 0 0 0
+17 0 1 0 18 0 1 0
+19 0 0 0 3 0 1 0
+15 0 0 0 20 0 0 0
+20 0 0 0 17 0 0 0
+21 0 0 0 4 0 0 0
+4 0 1 0 2 0 0 0
+4 0 2 0 1 0 0 0
+11 0 0 0 10 0 0 0
+11 0 1 0 9 0 0 0
+11 0 2 0 8 0 0 0
+11 0 3 0 13 0 0 0
+23 0 0 0 21 0 0 0
+23 0 1 0 11 0 0 0
+

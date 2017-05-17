@@ -1,0 +1,80 @@
+SpiralSynthModular File Ver 4
+154 89 700 600 0 0 0 0
+SectionList
+14
+
+Device 0 Plugin 1
+401 145 5 Scope 0 411 145 
+
+
+Device 1 Plugin 0
+469 145 3 OSS 0 479 145 
+
+
+Device 3 Plugin 23
+139 193 9 WaveTable 0 149 193 
+1 0 2 0.421244 1 
+
+Device 4 Plugin 23
+268 163 9 WaveTable 0 278 163 
+1 0 -3 1 1 
+
+Device 5 Plugin 5
+204 159 10 Envelope 1 0 214 159 
+1 0 0.3249 0.96 1 1 0.01
+
+Device 6 Plugin 5
+335 144 8 Envelope 0 345 144 
+1 0.0289 0.4624 0.26 1 0.5 0.01
+
+Device 9 Plugin -1
+68 6 0  0 0 0
+1 31 Tutorial 3 - Additive Synthesis
+
+
+Device 10 Plugin -1
+66 21 0  0 0 0
+1 94 Additive synthesis works on the principle of building up sounds by combining simpler elements.
+
+
+Device 11 Plugin -1
+65 36 0  0 0 0
+1 95 In this case, two oscillators are used, one modulating the pitch of the other. This is known as
+
+
+Device 16 Plugin -1
+120 288 0  0 0 0
+1 80 Envelope 1 controls the amount of modulation that the second ocillator recieves,
+
+
+Device 17 Plugin -1
+119 304 0  0 0 0
+1 60 The second envelope shapes the amplitude of the final sound.
+
+
+Device 18 Plugin -1
+66 50 0  0 0 0
+1 28 frequency modulation, or FM.
+
+
+Device 19 Plugin -1
+90 91 0  0 0 0
+1 84 The first digital synths used this technique, such as the DX range of Yamaha synths.
+
+
+Device 24 Plugin 40
+70 150 8 Keyboard 0 80 150 
+0
+
+
+-1 0 9
+3 0 0 0 5 0 1 0
+4 0 0 0 6 0 1 0
+6 0 1 0 0 0 0 0
+5 0 1 0 4 0 0 0
+24 0 0 0 3 0 0 0
+24 0 1 0 5 0 0 0
+24 0 1 0 6 0 0 0
+0 0 0 0 1 0 0 1
+0 0 0 0 1 0 1 1
+

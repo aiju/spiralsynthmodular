@@ -1,0 +1,175 @@
+#############################################################################
+# Makefile for building LADSPAPlugin.so
+#############################################################################
+
+####### Compiler, tools and options
+
+CC	=	gcc
+CXX	=	g++
+CFLAGS	=       @CFLAGS@ @FLTK_CFLAGS@
+CXXFLAGS=       @CXXFLAGS@ @FLTK_CXXFLAGS@
+INCPATH	=	-I../../../ -I/usr/X11R6/include
+LINK	=	g++ -shared
+LFLAGS	=
+LIBS	=   @FLTK_LIBS@ @LRDFLIBS@
+MOC     = moc
+UIC	=	
+
+TAR	=	tar -cf
+GZIP	=	gzip -9f
+
+INSTALL	= @INSTALL@
+
+###### Autoconf variables
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+
+####### Files
+
+HEADERS =	LADSPAPlugin.h \
+		LADSPAPluginGUI.h \
+		../SpiralPlugin.h \
+		../SpiralPluginGUI.h \
+		../../ChannelHandler.h \
+		../../Sample.h \
+		LADSPAInfo.h \
+		../Widgets/Fl_Knob.H \
+		../Widgets/Fl_LED_Button.H \
+		../../../GUI/Widgets/SpiralGUI.H
+SOURCES =	LADSPAPlugin.C \
+		LADSPAPluginGUI.C \
+		../SpiralPlugin.C \
+		../SpiralPluginGUI.C \
+		../../ChannelHandler.C \
+		../../Sample.C \
+		LADSPAInfo.C \
+		../Widgets/Fl_Knob.cxx \
+		../Widgets/Fl_LED_Button.cxx \
+		../../../GUI/Widgets/SpiralGUI.C
+OBJECTS =	LADSPAPlugin.o \
+		LADSPAPluginGUI.o \
+		../SpiralPlugin.o \
+		../SpiralPluginGUI.o \
+		../../ChannelHandler.o \
+		../../Sample.o \
+		LADSPAInfo.o \
+		../Widgets/Fl_Knob.o \
+		../Widgets/Fl_LED_Button.o \
+		../../../GUI/Widgets/SpiralGUI.o
+INTERFACES =
+UICDECLS =
+UICIMPLS =
+SRCMOC	=
+OBJMOC	=
+DIST	=
+TARGET	=	LADSPAPlugin.so
+
+####### Implicit rules
+
+.SUFFIXES: .cpp .cxx .cc .C .c
+
+.cpp.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.cxx.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.cc.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.C.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.c.o:
+	$(CC) -c $(CFLAGS) $(INCPATH) -o $@ $<
+
+####### Build rules
+
+
+all: $(TARGET)
+
+$(TARGET): $(UICDECLS) $(OBJECTS) $(OBJMOC)
+	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJMOC) $(LIBS)
+
+moc: $(SRCMOC)
+
+tmake: Makefile
+
+Makefile: LADSPAPlugin.pro
+	tmake LADSPAPlugin.pro -o Makefile
+
+dist:
+	$(TAR) LADSPAPlugin.tar LADSPAPlugin.pro $(SOURCES) $(HEADERS) $(INTERFACES) $(DIST)
+	$(GZIP) LADSPAPlugin.tar
+
+clean:
+	-rm -f $(OBJECTS) $(OBJMOC) $(SRCMOC) $(UICIMPLS) $(UICDECLS) $(TARGET)
+	-rm -f *~ core
+
+install:
+	$(INSTALL) $(TARGET) $(libdir)/SpiralPlugins
+
+####### Sub-libraries
+
+
+###### Combined headers
+
+
+####### Compile
+
+../SpiralPlugin.o: ../SpiralPlugin.C \
+		../SpiralPlugin.h \
+		../../ChannelHandler.h \
+		../../Sample.h
+
+../SpiralPluginGUI.o: ../SpiralPluginGUI.C \
+		../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../ChannelHandler.h \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../Widgets/Fl_Knob.o: ../Widgets/Fl_Knob.cxx \
+		../Widgets/Fl_Knob.H
+
+../Widgets/Fl_LED_Button.o: ../Widgets/Fl_LED_Button.cxx \
+		../Widgets/Fl_LED_Button.H
+
+../../../GUI/Widgets/SpiralGUI.o: ../../../GUI/Widgets/SpiralGUI.C \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../../Sample.o: ../../Sample.C \
+		../../Sample.h
+
+LADSPAPlugin.o: LADSPAPlugin.C \
+		LADSPAPlugin.h \
+		../SpiralPlugin.h \
+		../../Sample.h \
+		LADSPAPluginGUI.h \
+		../SpiralPluginGUI.h \
+		LADSPAInfo.h \
+		SpiralIcon.xpm
+
+LADSPAPluginGUI.o: LADSPAPluginGUI.C \
+		LADSPAPluginGUI.h \
+		../Widgets/Fl_Knob.H \
+		LADSPAPlugin.h \
+		../SpiralPlugin.h \
+		../../Sample.h \
+		../SpiralPluginGUI.h \
+		../Widgets/Fl_Knob.H \
+		../Widgets/Fl_LED_Button.H
+
+../../ChannelHandler.o: ../../ChannelHandler.C \
+		../../ChannelHandler.h

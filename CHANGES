@@ -1,0 +1,262 @@
+Release 0.2.2
+
+New GUI - less cluttered and more "traditional" toolbars.
+Improved LADSPA GUI, and librdf support.
+Improved Jack functionality.
+New ALSA midi support.
+New configure script - makes most dependancies optional.
+Makefile / .configure fixes.
+Overload light on Mono-Mixer.
+Numeric parameter input on lots of plugins.
+Improved DistributorPlugin.
+More controls on ScopePlugin and MeterPlugin.
+Variable number of inputs and/or outputs on MixerPlugin and LogicPlugin.
+Improved PluginGUI resizing.
+Vanishing comment bugfix.
+Multiple FormantFilter bug-fix.
+Fixed bug that caused a segfault when the last MIDI plugin is deleted.
+Time display and 16bit, 24bit packed PCM, or 32bit float IEEE output in DiskWriter.
+Libsndfile support for Sampler, SpiralLoops, Streamer, etc.
+Misc fixes.
+
+New Plugins:
+TransposePlugin
+
+
+Release 0.2.1
+
+New GUI - one window with minimisable/maximisable modules,
+          no more losing track of which module window is which.
+NotesnapPlugin can now filter midi notes.
+Preliminary OSX support
+Plugin Groups (new Maths/Logic group)
+Plugins are now loaded straight from the directory, no need to explicitly list them anymore.
+Renaming of modules
+More theming (and new default theme)
+Help window fixes
+Matrix pattern sequencer
+Misc fixes
+
+New Plugins:
+FormantFilterPlugin
+AnotherFilterPlugin
+NoisePlugin
+OperatorPlugin
+CounterPlugin
+FlipflopPlugin
+SwitchPlugin
+BeatMatchPlugin
+LogicPlugin
+MixSwitchPlugin
+SplitSwitchPlugin
+MeterPlugin (ported)
+WaveShaperPlugin (ported)
+TrigPlugin
+SpiralLoopPlugin (new code)
+MasherPlugin
+
+Release 0.2.0
+
+App now multithreaded, and plugins use a new api to support this
+Jack support fully functional and stable
+-Realtime commandline option (as root) runs ssm audio in SCHED_FIFO
+LADSPA plugin much improved with built in GUI generator
+App help added with Helptext for all of the plugins
+Numerous fixes, additions and GUI improvements
+
+Release 0.1.1
+
+Main app changes:
+
+Back to one window GUI with seperate movable areas
+Fixed Plugin window events/drawing bug
+Echo/Delay crash bug fix
+Less C code in SpiralSynthModular.C (Andy Preston)
+Ability to load ssm files from command line (Dan Bethell)
+gcc3.1 fixes + dynamic linking bugfix (Takashi Iwai)
+configure + make fixes (Takashi Iwai)
+configure option --with-plugindir=xxx added (Takashi Iwai)
+
+Plugin changes:
+
+LFOPlugin (Andy Preston)
+MeterPlugin (Andy Preston)
+StereoMixerPlugin fix (Andy Preston)
+Scaling fix and name sorting for the LADSPAPlugin (Mike Rawes)
+Sequencer bugfix for dragging note events
+Matrix now 64X24 + tweaked GUI
+Matrix can be controlled by an external clock pulse
+Matrix copy/paste and transpose functionality (Andy Preston)
+JackPlugin fixed for recent versions of jack (Takashi Iwai)
+
+Release 0.1.0
+
+Main app changes:
+
+New GUI code, main app window has now become the editor window, with a new
+window for plugin dialogues. (build fltk with ./configure --enable-shared)
+New default theme.
+New load/save system for external files like samples. (external files stored
+in a directory)
+configure fixes (Takashi Iwai)
+ppc fix (Takashi Iwai)
+gcc 3 fixes (Takashi Iwai)
+wav loading fixes
+Graph sorted node execution order to remove internal latency.
+
+Plugin changes:
+Scope plugin bugfix
+DistributorPlugin (Fade)
+JoystickPlugin (Bill Bland)
+
+Release 0.0.9 Thursday Febuary 14 2002
+
+Main app changes:
+
+Right click plugin menu
+More error boxes, all asserts out of SSM app, better recovery from bad files
+Audio engine can now be run in callback mode for plugins like the JackPlugin
+Options save (Bill Bland)
+
+Plugin changes:
+
+PoshSampler, with loop points, editing and dirty timestretching
+ComplexEnvelope, describe envelopes with arbitary lines or Bezier curves
+MidiPlugin updated to support all controller channels, with multiple ports
+Rewritten the midi parser
+Controller plugin save problem fixed
+Matrix stream out leaner
+SpiralLoopPlugin Close file dialog crash fixed
+StreamPlugin crash on mono wavs fixed
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Release 0.0.8 Thursday Febuary 14 2002
+
+Main app changes:
+
+All plugin communication now in 32bit floating point.
+New configure/make system (Erik de Castro Lopo)
+Warning and error dialogs
+FLTK 1.1.0 supported (Takashi Iwai)
+gcc-3 fixes (Takashi Iwai)
+Proper tooltips implemented
+Options GUI
+Crash bug fix
+
+Plugin changes:
+
+OSS output now does input, and with duplex - simultaneous i/o.
+StreamPlugin
+XFadePlugin
+SpiralLoopPlugin
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Release 0.0.7 Tuesday November 21 2001.
+
+Main app changes:
+
+Wavfile fix for PPC machines. (Yves Usson)
+PNG fix for images with an alpha channel. (Yves Usson)
+All windows are now double buffered by default.
+Misc gui tweaks
+
+Plugin changes:
+
+RiffWav loader attempts to decode non standard wavs
+Ladspa plugin should compile whether ladspa is installed or not.
+SampleHoldPlugin (Yves Usson)
+NoteSnapPlugin
+WaveShaperPlugin GUI updated. (Yves Usson)
+AmpPlugin GUI updated. (Yves Usson)
+Sampler plugin streams paths with spaces properly.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Release 0.0.6 Wednesday October 31 2001.
+
+Main app changes:
+
+Put a version number in the .SpiralSynthModular, so there's no need 
+to break the file format again.
+Basic theme support - png loading needs libpng
+Clear first buffer to stop noise on startup.
+Different samplerates should be handled properly now. 
+RiffWav rewritten - automatically mixes stereo wavs into mono.
+Deals with header much better, stores samplerate etc.
+
+Plugin changes:
+
+Output : Buffer size now handled correctly (Fragment settings in .rc file).
+SeqSelector : Should always loop now.
+SamplerPlugin : Individual sample outputs added.
+SamplerPlugin : Pitch takes samplerate into account.
+SequencerPlugin : Speed takes samplerate into account.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Release 0.0.5 Thursday October 20 2001.
+
+Main app changes:
+
+Plugin Tooltips
+Layout text comments
+Toolbox GUI sorted
+Low level optimisation begun, to stop processing silent sample buffers.
+Removed asserts from low level sample code (only for releases).
+Removed tons of old SpiralSynth legacy code and dependancies.
+File confirmation added.
+
+Plugin changes:
+
+WaveShaper Plugin added (thx to Yves Usson)
+SeqSelector GUI finished
+Oscillator & Wavetable octave fix (Yves Usson)
+Oscillator, Echo and envelope GUI additions (Yves Usson)
+Envelope plugin bug fixed (warning volume will need to be increased on saved layouts)
+Controller plugin now much more versatile.
+LADSPA plugin
+Moog filter optimised
+SVF filter optimised
+Splitter plugin now has 4 outputs
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Release 0.0.4 Thursday September 13 2001.
+
+Main app changes:
+
+Crash bugs related to deleting of devices located and fixed.
+Big endian PPC support back in.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Release 0.0.3 Monday September 10 2001.
+
+Main app changes:
+
+Fixed an include problem that some people were getting.
+Added functionality for plugind to change their device 
+properties while running.
+
+Plugin changes:
+
+Sequencer Plugin finished, records note CV input, and can hold up to 16 
+different patterns.
+Added the SeqSelecta, which can be used to step through patterns on the 
+sequencer or matrix plugins.
+WaveTableOsc plugin - Sine, Square, Saw, InvSaw, Triangle, 2 Pulse and InvSine 
+waveshapes generated. Should be much faster than the old oscillator, but with
+less modulation options.
+Oscillator optimisations.
+Improved the delay plugin (now linearly interpolated)
+Sampler plugin now pitches samples offset from their input frequency, 
+for tuning of samples used in melodies.
+Output no longer exits if it can't open the soundcard, 
+wav recording is still enabled.
+Midi device wasn't opening the file in .SpiralSynthModular - fixed.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+First release 0.0.2 Monday July 2 2001.

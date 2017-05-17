@@ -1,0 +1,45 @@
+In no particular order:
+
+Yves Usson did lots of early work on the GUI, and provided the excellent
+Fl_Knob widget. Also authored plugins such as the WaveShaper.
+
+Erik de Castro Lopo helped with the configure scripts.
+
+Takashi Iwai fixed many compiler issues and other fixes.
+
+Nicolas Noble first wrote the LADSPA plugin.
+
+Dr Bill Bland wrote the JoystickPlugin and provided patches for the apply
+button in the options.
+
+Dan "Pawfal" Bethell tested, helped with GUI and fixes, and has been known
+to provide beer.
+
+Fade of pawfal fame wrote the DistributorPlugin and does much testing.
+
+Andy Preston fixes stuff all over the place that I'm too lazy to, also wrote
+many plugins and adds handy features.
+
+Mike Rawes maintains the LADSPA plugin, and wrote the auto generating GUI for
+it. Also lots of other fixes, and gcc3.x "porting".
+
+Andrew Johnson added libsnd support and reworked the JackPlugin, and
+DiskWriterPlugin, and fixed loads of bugs.
+
+Michel Pollet porting to OSX.
+
+Stefan Schwandter did sime install script fixes.
+
+Joe Jones did lots of fixes and is currently working on subpatch implementation.
+
+Patrick Shirkey helped with all the helptext and provides much testing and feedback.
+
+Kenny Graunke does testing and helped with Makefile bugs
+
+Paul Davis helped with nasty threading issues and unwittingly provided code
+from his ardour project.
+
+Dave Griffiths started the thing going.
+
+Let me know (dave) if any of this is wrong, or you have been missed off - it was
+quite difficult to gather all the information :)

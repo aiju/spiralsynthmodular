@@ -1,0 +1,111 @@
+SpiralSynthModular File Ver 4
+298 115 700 600 0 0 0 0
+SectionList
+19
+
+Device 0 Plugin 4
+211 119 10 Oscillator 0 221 119 
+1 2 0 1.47687 0 0 0 1 
+
+Device 1 Plugin 4
+209 55 10 Oscillator 0 219 55 
+1 2 -1 0.960617 0 0 1.17928e-38 1 
+
+Device 2 Plugin 4
+213 186 10 Oscillator 0 223 186 
+1 2 0 0.733381 0.23 0 2.2772e-38 1 
+
+Device 3 Plugin 4
+212 251 10 Oscillator 0 222 251 
+1 2 0 0.983196 0.87 0 0 1 
+
+Device 4 Plugin 8
+501 119 12 Stereo Mixer 0 511 119 
+1 1 0.5 1 0.5 1 0.5 1 0.5 
+
+Device 5 Plugin 7
+362 118 5 Mixer 0 372 118 
+2 4 1 1 1 1 
+
+Device 6 Plugin 13
+432 120 11 Moog Filter 0 442 120 
+1 0.0943 0.07142 
+
+Device 8 Plugin 0
+569 118 3 OSS 0 579 118 
+
+
+Device 14 Plugin 5
+207 316 8 Envelope 0 217 316 
+1 0.3844 0.1156 0.91 2.1609 0.5 0.01
+
+Device 18 Plugin 5
+286 246 8 Envelope 0 296 246 
+1 0.8281 3.2761 0 0 0.5 0.01
+
+Device 19 Plugin 5
+289 183 8 Envelope 0 299 183 
+1 0.6241 0.3249 0 0 0.5 0.01
+
+Device 20 Plugin 5
+288 116 8 Envelope 0 298 116 
+1 0.7225 1.8496 0 1 0.5 0.01
+
+Device 21 Plugin 5
+290 49 8 Envelope 0 300 49 
+1 0.0529 2.6896 0 0 0.5 0.01
+
+Device 22 Plugin 7
+354 312 5 Mixer 0 364 312 
+2 4 1.47 0.07 1 1 
+
+Device 24 Plugin -1
+74 8 0  0 0 0
+1 42 A fairly complicated synth, 4 oscillators,
+
+
+Device 25 Plugin -1
+72 26 0  0 0 0
+1 53 with an extra envelope and LFO modulating the filter.
+
+
+Device 26 Plugin 23
+280 342 9 WaveTable 0 290 342 
+1 0 0 0.457092 1 
+
+Device 27 Plugin 40
+78 168 8 Keyboard 0 88 168 
+0
+
+
+Device 28 Plugin -1
+81 84 0  0 0 0
+1 9 Hit keys!
+
+
+-1 0 24
+5 0 0 0 6 0 0 0
+4 0 0 0 8 0 0 0
+4 0 1 0 8 0 1 0
+6 0 0 0 4 0 0 0
+1 0 0 0 21 0 1 0
+0 0 0 0 20 0 1 0
+2 0 0 0 19 0 1 0
+3 0 0 0 18 0 1 0
+21 0 1 0 5 0 0 0
+20 0 1 0 5 0 1 0
+19 0 1 0 5 0 2 0
+18 0 1 0 5 0 3 0
+14 0 0 0 22 0 0 0
+22 0 0 0 6 0 1 0
+26 0 0 0 22 0 1 0
+27 0 0 0 3 0 0 0
+27 0 0 0 2 0 0 0
+27 0 0 0 0 0 0 0
+27 0 0 0 1 0 0 0
+27 0 1 0 21 0 0 0
+27 0 1 0 20 0 0 0
+27 0 1 0 19 0 0 0
+27 0 1 0 18 0 0 0
+27 0 1 0 14 0 0 0
+

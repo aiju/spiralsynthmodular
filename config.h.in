@@ -1,0 +1,47 @@
+/* config.h.in.  Generated automatically from configure.in by autoheader.  */
+
+/* Define to empty if the keyword does not work.  */
+#undef const
+
+/* Define as __inline if that's what the C compiler calls it.  */
+#undef inline
+
+/* Define if you have the ANSI C header files.  */
+#undef STDC_HEADERS
+
+/* Define if the X Window System is missing or not being used.  */
+#undef X_DISPLAY_MISSING
+
+/* Define if you have the <FL/Fl.h> header file.  */
+#undef HAVE_FL_FL_H
+
+/* Define if you have the <GL/gl.h> header file.  */
+#undef HAVE_GL_GL_H
+
+/* Define if you have the <dlfcn.h> header file.  */
+#undef HAVE_DLFCN_H
+
+/* Define if you have the <math.h> header file.  */
+#undef HAVE_MATH_H
+
+/* Define if you have the dl library (-ldl).  */
+#undef HAVE_LIBDL
+
+/* Define if you have the fltk library (-lfltk).  */
+#undef HAVE_LIBFLTK
+
+/* Define if you have the m library (-lm).  */
+#undef HAVE_LIBM
+
+/* Enable liblrdf support for LADSPA Plugin */
+#undef HAVE_LIBLRDF
+
+/* Use ALSA MIDI not OSS */
+#undef USE_ALSA_MIDI
+
+/* Use OSS MIDI not ALSA */
+#undef USE_OSS_MIDI
+
+/* Enable libsndfile for waveform loading */
+#undef USE_LIBSNDFILE
+

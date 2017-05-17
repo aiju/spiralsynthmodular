@@ -1,0 +1,169 @@
+#############################################################################
+# Makefile for building MeterPlugin.so
+#############################################################################
+
+####### Compiler, tools and options
+
+CC	=	gcc
+CXX	=	g++
+CFLAGS	=       @CFLAGS@ @FLTK_CFLAGS@
+CXXFLAGS=       @CXXFLAGS@ @FLTK_CXXFLAGS@
+INCPATH	=	-I/usr/X11R6/include
+LINK	=	g++ -shared
+LFLAGS	=
+LIBS	=   @FLTK_LIBS@
+MOC     = moc
+UIC	=
+
+TAR	=	tar -cf
+GZIP	=	gzip -9f
+
+INSTALL	= @INSTALL@
+
+###### Autoconf variables
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+
+####### Files
+
+HEADERS =	MeterPlugin.h \
+		MeterPluginGUI.h \
+		../SpiralPlugin.h \
+		../SpiralPluginGUI.h \
+		../../ChannelHandler.h \
+		../../Sample.h \
+		../Widgets/Fl_SevenSeg.H \
+		../Widgets/Fl_VU_Meter.h \
+		../../../GUI/Widgets/SpiralGUI.H
+SOURCES =	MeterPlugin.C \
+		MeterPluginGUI.C \
+		../SpiralPlugin.C \
+		../SpiralPluginGUI.C \
+		../../ChannelHandler.C \
+		../../Sample.C \
+		../Widgets/Fl_SevenSeg.cxx \
+		../Widgets/Fl_VU_Meter.cxx \
+		../../../GUI/Widgets/SpiralGUI.C
+OBJECTS =	MeterPlugin.o \
+		MeterPluginGUI.o \
+		../SpiralPlugin.o \
+		../SpiralPluginGUI.o \
+		../../ChannelHandler.o \
+		../../Sample.o \
+		../Widgets/Fl_SevenSeg.o \
+		../Widgets/Fl_VU_Meter.o \
+		../../../GUI/Widgets/SpiralGUI.o
+INTERFACES =
+UICDECLS =
+UICIMPLS =
+SRCMOC	=
+OBJMOC	=
+DIST	=
+TARGET	=	MeterPlugin.so
+
+####### Implicit rules
+
+.SUFFIXES: .cpp .cxx .cc .C .c
+
+.cpp.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.cxx.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.cc.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.C.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.c.o:
+	$(CC) -c $(CFLAGS) $(INCPATH) -o $@ $<
+
+####### Build rules
+
+
+all: $(TARGET)
+
+$(TARGET): $(UICDECLS) $(OBJECTS) $(OBJMOC)
+	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJMOC) $(LIBS)
+
+moc: $(SRCMOC)
+
+tmake:
+	tmake MeterPlugin.pro
+
+dist:
+	$(TAR) MeterPlugin.tar MeterPlugin.pro $(SOURCES) $(HEADERS) $(INTERFACES) $(DIST)
+	$(GZIP) MeterPlugin.tar
+
+clean:
+	-rm -f $(OBJECTS) $(OBJMOC) $(SRCMOC) $(UICIMPLS) $(UICDECLS) $(TARGET)
+	-rm -f *~ core
+
+install:
+	$(INSTALL) $(TARGET) $(libdir)/SpiralPlugins
+
+####### Sub-libraries
+
+
+###### Combined headers
+
+
+####### Compile
+
+../SpiralPlugin.o: ../SpiralPlugin.C \
+		../SpiralPlugin.h \
+		../../ChannelHandler.h \
+		../../Sample.h
+
+../SpiralPluginGUI.o: ../SpiralPluginGUI.C \
+		../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../ChannelHandler.h \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../../../GUI/Widgets/SpiralGUI.o: ../../../GUI/Widgets/SpiralGUI.C \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../Widgets/Fl_VU_Meter.o: ../Widgets/Fl_VU_Meter.cxx \
+		../Widgets/Fl_VU_Meter.h
+
+../Widgets/Fl_SevenSeg.o: ../Widgets/Fl_SevenSeg.cxx \
+		../Widgets/Fl_SevenSeg.H
+
+../../Sample.o: ../../Sample.C \
+		../../Sample.h
+
+MeterPlugin.o: MeterPlugin.C \
+		MeterPlugin.h \
+		MeterPluginGUI.h \
+                ../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../Sample.h \
+		SpiralIcon.xpm
+
+MeterPluginGUI.o: MeterPluginGUI.C \
+		MeterPluginGUI.h \
+		MeterPlugin.h \
+		../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../../GUI/Widgets/SpiralGUI.H \
+		../Widgets/Fl_VU_Meter.h \
+		../Widgets/Fl_SevenSeg.H \
+		../../Sample.h
+
+../../ChannelHandler.o: ../../ChannelHandler.C \
+		../../ChannelHandler.h

@@ -1,0 +1,171 @@
+#############################################################################
+# Makefile for building MidiPlugin.so
+#############################################################################
+
+####### Compiler, tools and options
+
+CC	=	gcc
+CXX	=	g++
+CFLAGS	=       @CFLAGS@ @FLTK_CFLAGS@
+CXXFLAGS=       @CXXFLAGS@ @FLTK_CXXFLAGS@
+INCPATH	=	-I/usr/X11R6/include
+LINK	=	g++ -shared
+LFLAGS	=
+LIBS	=	@FLTK_LIBS@ @AMIDILIBS@
+MOC     = moc
+UIC	=
+
+TAR	=	tar -cf
+GZIP	=	gzip -9f
+
+INSTALL	= @INSTALL@
+
+###### Autoconf variables
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+
+####### Files
+
+HEADERS =	MidiPlugin.h \
+		MidiPluginGUI.h \
+		../SpiralPlugin.h \
+		../SpiralPluginGUI.h \
+		../../ChannelHandler.h \
+		../../Sample.h \
+		../../Midi.h \
+		../Widgets/Fl_Knob.H \
+		../../../GUI/Widgets/SpiralGUI.H
+SOURCES =	MidiPlugin.C \
+		MidiPluginGUI.C \
+		../SpiralPlugin.C \
+		../SpiralPluginGUI.C \
+		../../ChannelHandler.C \
+		../../Sample.C \
+		../../Midi.C \
+		../Widgets/Fl_Knob.cxx \
+		../../../GUI/Widgets/SpiralGUI.C
+OBJECTS =	MidiPlugin.o \
+		MidiPluginGUI.o \
+		../SpiralPlugin.o \
+		../SpiralPluginGUI.o \
+		../../ChannelHandler.o \
+		../../Sample.o \
+		../../Midi.o \
+		../Widgets/Fl_Knob.o \
+		../../../GUI/Widgets/SpiralGUI.o
+INTERFACES =
+UICDECLS =
+UICIMPLS =
+SRCMOC	=
+OBJMOC	=
+DIST	=
+TARGET	=	MidiPlugin.so
+
+####### Implicit rules
+
+.SUFFIXES: .cpp .cxx .cc .C .c
+
+.cpp.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.cxx.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.cc.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.C.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o $@ $<
+
+.c.o:
+	$(CC) -c $(CFLAGS) $(INCPATH) -o $@ $<
+
+####### Build rules
+
+
+all: $(TARGET)
+
+$(TARGET): $(UICDECLS) $(OBJECTS) $(OBJMOC)
+	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJMOC) $(LIBS)
+
+moc: $(SRCMOC)
+
+tmake:
+	tmake MidiPlugin.pro
+
+dist:
+	$(TAR) MidiPlugin.tar MidiPlugin.pro $(SOURCES) $(HEADERS) $(INTERFACES) $(DIST)
+	$(GZIP) MidiPlugin.tar
+
+clean:
+	-rm -f $(OBJECTS) $(OBJMOC) $(SRCMOC) $(UICIMPLS) $(UICDECLS) $(TARGET)
+	-rm -f *~ core
+
+install:
+	$(INSTALL) $(TARGET) $(libdir)/SpiralPlugins
+
+####### Sub-libraries
+
+
+###### Combined headers
+
+
+####### Compile
+
+../SpiralPlugin.o: ../SpiralPlugin.C \
+		../SpiralPlugin.h \
+		../../ChannelHandler.h \
+		../../Sample.h
+
+../SpiralPluginGUI.o: ../SpiralPluginGUI.C \
+		../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../ChannelHandler.h \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../Widgets/Fl_Knob.o: ../Widgets/Fl_Knob.cxx \
+		../Widgets/Fl_Knob.H
+
+../../../GUI/Widgets/SpiralGUI.o: ../../../GUI/Widgets/SpiralGUI.C \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../../Sample.o: ../../Sample.C \
+		../../Sample.h
+
+../../Midi.o: ../../Midi.C \
+		../../Midi.h \
+		../../NoteTable.h
+
+MidiPlugin.o: MidiPlugin.C \
+		MidiPlugin.h \
+		MidiPluginGUI.h \
+		../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../Sample.h \
+		../../NoteTable.h \
+		../../Midi.h \
+		SpiralIcon.xpm
+
+MidiPluginGUI.o: MidiPluginGUI.C \
+		MidiPluginGUI.h \
+		MidiPlugin.h \
+		../SpiralPluginGUI.h \
+		../SpiralPlugin.h \
+		../../Sample.h \
+		../Widgets/Fl_Knob.H \
+		../../../GUI/Widgets/SpiralGUI.H
+
+../../ChannelHandler.o: ../../ChannelHandler.C \
+		../../ChannelHandler.h
