@@ -28,13 +28,17 @@ using namespace std;
 ChannelHandler::ChannelHandler() :
 m_UpdateIndicator(false)
 {
+	pthread_mutexattr_t ma;
 	m_Mutex = new pthread_mutex_t;
 	m_Command[0]=0;
 	m_Command[1]=0;
 	m_BulkSrc=NULL;
 	m_BulkSize=0;
 	m_BulkPos=-1;
-	pthread_mutex_init(m_Mutex,NULL);
+	pthread_mutexattr_init(&ma);
+	pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_ERRORCHECK);
+	pthread_mutex_init(m_Mutex,&ma);
+	pthread_mutexattr_destroy(&ma);
 }
 
 ChannelHandler::~ChannelHandler()
