@@ -1172,8 +1172,8 @@ if test $ac_arg_debug = "Y" ; then
 	CFLAGS="-pipe -Wall -O0 -ggdb "
 	CXXFLAGS="-pipe -Wall -O0 -ggdb "
 else
-	CFLAGS="-pipe -Wall -O3 -ffast-math -DNO_DEBUG -Wno-unused "
-	CXXFLAGS="-pipe -Wall -O3 -ffast-math -DNO_DEBUG -Wno-unused "
+	CFLAGS="-pipe -Wall -O0 -ffast-math -DNO_DEBUG -Wno-unused "
+	CXXFLAGS="-pipe -Wall -O0 -ffast-math -DNO_DEBUG -Wno-unused "
 fi
 
 
@@ -2870,8 +2870,8 @@ fi
 
 
 
-CFLAGS="$CFLAGS -fPIC"
-CXXFLAGS="$CFLAGS -fPIC"
+CFLAGS="$CFLAGS -fPIC -Wno-write-strings"
+CXXFLAGS="$CXXFLAGS -fPIC -Wno-write-strings"
 
 
 
