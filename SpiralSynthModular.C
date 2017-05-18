@@ -382,7 +382,7 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_Toolbar->add(m_NewComment);
 
         m_GroupFiller = new Fl_Group (but*5, 0, 0, ToolbarHeight, "");
-		m_GroupFiller->color(SpiralInfo::SCOPE_FG_COLOUR);
+		m_GroupFiller->color(SpiralInfo::GUICOL_Button);
 	m_Topbar->add (m_GroupFiller);
 
        	m_GroupTab = new Fl_Tabs (but*5 + m_GroupFiller->w(), 0, MAIN_WIDTH-m_GroupFiller->w()-but*5, ToolbarHeight, "");
