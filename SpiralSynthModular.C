@@ -295,7 +295,7 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_TopWindow = new SpiralWindowType(MAIN_WIDTH, MAIN_HEIGHT, LABEL.c_str());
 	//m_TopWindow->resizable(m_TopWindow);
 
-	int but=50;
+	int but=60;
         int ToolbarHeight=but+0;
 
         m_Topbar = new Fl_Pack (0, 0, MAIN_WIDTH, ToolbarHeight, "");
@@ -321,9 +321,6 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_Load->image(tPix->copy());
 	delete tPix;
         m_Load->type(0);
-	m_Load->box(FL_PLASTIC_UP_BOX);
-	m_Load->color(SpiralInfo::GUICOL_Button);
-	m_Load->selection_color(SpiralInfo::GUICOL_Tool);
         m_Load->labelsize (1);
         m_Load->tooltip("Load a patch file");
 	m_Load->callback((Fl_Callback*)cb_Load);
@@ -334,9 +331,6 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_Save->image(tPix->copy());
 	delete tPix;
         m_Save->type(0);
-	m_Save->box(FL_PLASTIC_UP_BOX);
-	m_Save->color(SpiralInfo::GUICOL_Button);
-	m_Save->selection_color(SpiralInfo::GUICOL_Tool);
         m_Save->labelsize (1);
  	m_Save->tooltip("Save a patch file");
 	m_Save->callback((Fl_Callback*)cb_Save);
@@ -347,9 +341,6 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_New->image(tPix->copy());
 	delete tPix;
         m_New->type(0);
-	m_New->box(FL_PLASTIC_UP_BOX);
-	m_New->color(SpiralInfo::GUICOL_Button);
-	m_New->selection_color(SpiralInfo::GUICOL_Tool);
   	m_New->labelsize (1);
         m_New->tooltip("New patch");
 	m_New->callback((Fl_Callback*)cb_New);
@@ -360,9 +351,6 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_Options->image(tPix->copy());
 	delete tPix;
         m_Options->type(0);
-	m_Options->box(FL_PLASTIC_UP_BOX);
-	m_Options->color(SpiralInfo::GUICOL_Button);
-	m_Options->selection_color(SpiralInfo::GUICOL_Tool);
  	m_Options->labelsize (1);
         m_Options->tooltip("Options");
 	m_Options->callback((Fl_Callback*)cb_Rload);
@@ -373,9 +361,6 @@ SpiralWindowType *SynthModular::CreateWindow()
 	m_NewComment->image(tPix->copy());
 	delete tPix;
         m_NewComment->type(0);
-	m_NewComment->box(FL_PLASTIC_UP_BOX);
-	m_NewComment->color(SpiralInfo::GUICOL_Button);
-	m_NewComment->selection_color(SpiralInfo::GUICOL_Tool);
         m_NewComment->labelsize (1);
         m_NewComment->tooltip("New comment");
 	m_NewComment->callback((Fl_Callback*)cb_NewComment);
@@ -387,8 +372,6 @@ SpiralWindowType *SynthModular::CreateWindow()
 
        	m_GroupTab = new Fl_Tabs (but*5 + m_GroupFiller->w(), 0, MAIN_WIDTH-m_GroupFiller->w()-but*5, ToolbarHeight, "");
         m_GroupTab->user_data ((void*)(this));
-		m_GroupTab->box(FL_PLASTIC_DOWN_BOX);
-		m_GroupTab->color(SpiralInfo::GUICOL_Button);
         m_GroupTab->callback((Fl_Callback*)cb_GroupTab);
 	m_Topbar->add (m_GroupTab);
 
@@ -545,10 +528,8 @@ void SynthModular::LoadPlugins(string pluginPath)
 			{
                                 the_group = new Fl_Pack (m_GroupTab->x(), 16, m_GroupTab->w(), m_GroupTab->h()-15, GroupName.c_str());
 	                        the_group->type(FL_HORIZONTAL);
-                                the_group->labelsize(8);
-								the_group->color(SpiralInfo::GUICOL_Button);
+                                the_group->labelsize(12);
                                 the_group->user_data((void*)(this));
-	                        //m_GroupTab->add(the_group);
                                 m_GroupTab->value(the_group);
 				m_PluginGroupMap[GroupName]=the_group;
 			}
@@ -557,8 +538,8 @@ void SynthModular::LoadPlugins(string pluginPath)
 				the_group=gi->second;
 			}
                         NewButton->type(0);
-			NewButton->box(FL_NO_BOX);
-			NewButton->down_box(FL_NO_BOX);
+			//NewButton->box(FL_NO_BOX);
+			//NewButton->down_box(FL_NO_BOX);
 			//NewButton->color(SpiralInfo::GUICOL_Button);
 			//NewButton->selection_color(SpiralInfo::GUICOL_Button);
 			the_group->add(NewButton);
