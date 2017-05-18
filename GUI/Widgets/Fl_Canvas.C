@@ -33,6 +33,7 @@ Fl_Group(x,y,w,h,name),
 cb_Connection(NULL),
 cb_Unconnect(NULL),
 cb_AddDevice(NULL),
+cb_Rename(NULL),
 m_ToolMenu(false),
 m_UpdateTimer(0)
 {
