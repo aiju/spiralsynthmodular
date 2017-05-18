@@ -62,6 +62,7 @@ static const int COMMENT_ID     = -1;
 using namespace std;
 
 map<int,DeviceWin*> SynthModular::m_DeviceWinMap;
+RWLock SynthModular::m_DeviceWinMap_lock;
 bool SynthModular::m_CallbackUpdateMode = false;
 bool SynthModular::m_BlockingOutputPluginIsReady = false;
 
@@ -112,6 +113,7 @@ void SynthModular::ClearUp()
 {
 	PauseAudio();
 
+	m_DeviceWinMap_lock.wlock();
 	for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin();
 		i!=m_DeviceWinMap.end(); i++)
 	{
@@ -135,6 +137,7 @@ void SynthModular::ClearUp()
 	m_Canvas->Clear();
 	m_DeviceWinMap.clear();
 	m_NextID=0;
+	m_DeviceWinMap_lock.wunlock();
 
 	ResumeAudio();
 }
@@ -142,24 +145,44 @@ void SynthModular::ClearUp()
 //////////////////////////////////////////////////////////
 void SynthModular::Update()
 {
+	int morituri;
+
 	m_CH.UpdateDataNow();
 
 	if (m_PauseAudio) return;
 
 	// for all the plugins
-	for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin();
-		i!=m_DeviceWinMap.end(); i++)
-	{
-		if (i->second->m_Device && i->second->m_Device->IsDead())			
-		{
-			//Delete Device
-			delete i->second->m_Device;
-			i->second->m_Device=NULL;
-
-			//Erase Device from DeviceWinMap
-			m_DeviceWinMap.erase(i);
+	morituri = 0;
+	m_DeviceWinMap_lock.rlock();
+	for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); i++)
+		if(i->second->m_Device && i->second->m_Device->IsDead()){
+			morituri = 1;
+			break;
 		}
-		else if (i->second->m_Device) // if it's not a comment
+	m_DeviceWinMap_lock.runlock();
+	
+	if(morituri > 0){
+		m_DeviceWinMap_lock.wlock();
+		for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); )
+		{
+			if (i->second->m_Device && i->second->m_Device->IsDead())			
+			{
+				//Delete Device
+				delete i->second->m_Device;
+				i->second->m_Device=NULL;
+				
+				//Erase Device from DeviceWinMap
+				m_DeviceWinMap.erase(i++);
+				continue;
+			}
+			i++;
+		}
+		m_DeviceWinMap_lock.wunlock();
+	}
+
+	RLocker rlocker(&m_DeviceWinMap_lock);
+	for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); i++)
+		if (i->second->m_Device) // if it's not a comment
 		{
 			#ifdef DEBUG_PLUGINS
 			cerr<<"Updating channelhandler of plugin "<<i->second->m_PluginID<<endl;
@@ -175,7 +198,6 @@ void SynthModular::Update()
 			// run any commands we've received from the GUI's
 			i->second->m_Device->ExecuteCommands();
 		}
-	}
 
 	// run the plugins (only ones connected to anything)
 	list<int> ExecutionOrder = m_Canvas->GetGraph()->GetSortedList();
@@ -203,16 +225,28 @@ void SynthModular::Update()
 
 void SynthModular::UpdatePluginGUIs()
 {
+	int morituri;
+	
 	// see if any need deleting
-	for (map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin();
-		 i!=m_DeviceWinMap.end(); )
+	morituri = 0;
+	m_DeviceWinMap_lock.rlock();
+	for (map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); i++)
 	{
 		if (i->second->m_DeviceGUI && i->second->m_DeviceGUI->GetPluginWindow())
 		{
 			SpiralPluginGUI *GUI=(SpiralPluginGUI *)i->second->m_DeviceGUI->GetPluginWindow();
 			GUI->Update();
 		}
+		if (i->second->m_DeviceGUI && i->second->m_DeviceGUI->Killed())
+			morituri = 1;
 
+	}
+	m_DeviceWinMap_lock.runlock();
+	
+	if(!morituri) goto out;
+
+	m_DeviceWinMap_lock.wlock();
+	for (map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); ){
 		if (i->second->m_DeviceGUI && i->second->m_DeviceGUI->Killed())
 		{
 			bool erase = true;
@@ -248,7 +282,9 @@ void SynthModular::UpdatePluginGUIs()
 		}
 		i++;
 	}
+	m_DeviceWinMap_lock.wunlock();
 
+out:
 	m_Canvas->Poll();
 }
 
@@ -657,6 +693,7 @@ void SynthModular::AddDevice(int n, int x=-1, int y=-1)
 		//cerr<<"adding device "<<ID<<endl;
 		temp->m_DeviceGUI->SetID(ID);
 		temp->m_Device->SetUpdateInfoCallback(ID,cb_UpdatePluginInfo);
+		WLocker rlocker(&m_DeviceWinMap_lock);
 		m_DeviceWinMap[ID]=temp;
 	}
 }
@@ -705,6 +742,7 @@ void SynthModular::AddComment(int n)
 		int ID=m_NextID++;
 		//cerr<<"adding comment "<<ID<<endl;
 		temp->m_DeviceGUI->SetID(ID);
+		WLocker rlocker(&m_DeviceWinMap_lock);
 		m_DeviceWinMap[ID]=temp;
 	}
 }
@@ -823,6 +861,7 @@ istream &operator>>(istream &s, SynthModular &o)
 		if (ver>1) s>>ps>>px>>py;
 
 		// Check we're not duplicating an ID
+		WLocker rlocker(&o.m_DeviceWinMap_lock);
 		if (o.m_DeviceWinMap.find(ID)!=o.m_DeviceWinMap.end())
 		{
 			SpiralInfo::Alert("Duplicate device ID found in file - aborting load");
@@ -920,6 +959,8 @@ ostream &operator<<(ostream &s, SynthModular &o)
 		s<<0<<" "<<0<<" ";
 		s<<0<<" "<<0<<endl;
 	}
+
+	RLocker rlocker(&o.m_DeviceWinMap_lock);
 
 	// save out the SynthModular
 	s<<"SectionList"<<endl;
@@ -1157,6 +1198,7 @@ inline void SynthModular::cb_Connection_i(Fl_Canvas* o, void* v)
 	CanvasWire *Wire;
 	Wire=(CanvasWire*)v;
 
+	RLocker rlocker(&m_DeviceWinMap_lock);
 	map<int,DeviceWin*>::iterator si=m_DeviceWinMap.find(Wire->OutputID);
 	if (si==m_DeviceWinMap.end())
 	{
@@ -1205,6 +1247,7 @@ inline void SynthModular::cb_Unconnect_i(Fl_Canvas* o, void* v)
 	
 	//cerr<<Wire->InputID<<" "<<Wire->InputPort<<endl;
 	
+	RLocker rlocker(&m_DeviceWinMap_lock);
 	map<int,DeviceWin*>::iterator di=m_DeviceWinMap.find(Wire->InputID);
 	if (di==m_DeviceWinMap.end())
 	{

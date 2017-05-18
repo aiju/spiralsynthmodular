@@ -38,6 +38,7 @@
 #include "GUI/Widgets/Fl_Canvas.h"
 #include "SpiralSound/Plugins/SpiralPlugin.h"
 #include "SpiralSound/ChannelHandler.h"
+#include "SpiralSound/RWLock.h"
 #include "SettingsWindow.h"
 
 const static string VER_STRING = "0.2.2";
@@ -112,6 +113,7 @@ private:
 	// currently static, to allow the callback
 	// cb_UpdatePluginInfo to access the map.
 	static map<int,DeviceWin*> m_DeviceWinMap;
+	static RWLock m_DeviceWinMap_lock;
 
         int m_NextID;
 

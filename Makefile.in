@@ -58,7 +58,8 @@ HEADERS =	SpiralSynthModular.h \
 		SpiralSound/PluginManager.h \
 		SpiralSound/ChannelHandler.h \
 		SpiralSound/Plugins/SpiralPlugin.h \
-		SpiralSound/Plugins/SpiralPluginGUI.h
+		SpiralSound/Plugins/SpiralPluginGUI.h \
+		SpiralSound/RWLock.h
 SOURCES =	main.cpp \
 		SpiralSynthModular.C \
 		GraphSort.C \
@@ -75,7 +76,8 @@ SOURCES =	main.cpp \
 		SpiralSound/PluginManager.C \
 		SpiralSound/ChannelHandler.C \
 		SpiralSound/Plugins/SpiralPlugin.C \
-		SpiralSound/Plugins/SpiralPluginGUI.C
+		SpiralSound/Plugins/SpiralPluginGUI.C \
+		SpiralSound/RWLock.C 
 OBJECTS =	main.o \
 		SpiralSynthModular.o \
 		GraphSort.o \
@@ -92,7 +94,8 @@ OBJECTS =	main.o \
 		SpiralSound/PluginManager.o \
 		SpiralSound/ChannelHandler.o \
 		SpiralSound/Plugins/SpiralPlugin.o \
-		SpiralSound/Plugins/SpiralPluginGUI.o
+		SpiralSound/Plugins/SpiralPluginGUI.o \
+		SpiralSound/RWLock.o
 INTERFACES =
 UICDECLS =
 UICIMPLS =
