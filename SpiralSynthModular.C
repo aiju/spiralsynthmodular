@@ -205,7 +205,7 @@ void SynthModular::UpdatePluginGUIs()
 {
 	// see if any need deleting
 	for (map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin();
-		 i!=m_DeviceWinMap.end(); i++)
+		 i!=m_DeviceWinMap.end(); )
 	{
 		if (i->second->m_DeviceGUI && i->second->m_DeviceGUI->GetPluginWindow())
 		{
@@ -241,9 +241,12 @@ void SynthModular::UpdatePluginGUIs()
 			i->second->m_DeviceGUI = NULL;
 
 			//Erase from winmap if no audio to do it
-			if (erase)
-				m_DeviceWinMap.erase(i);
+			if (erase){
+				m_DeviceWinMap.erase(i++);
+				continue;
+			}
 		}
+		i++;
 	}
 
 	m_Canvas->Poll();
