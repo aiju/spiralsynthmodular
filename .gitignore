@@ -1,0 +1,10 @@
+*.o
+*.so
+config.cache
+config.h
+config.log
+config.status
+Makefile
+spiralsynthmodular
+PluginList.txt
+SpiralSynthPluginLocation.h
