@@ -76,6 +76,8 @@ public:
 	void Clear();
 	void AddPluginName(const string &s, int ID) 
 		{ m_PluginNameList.push_back(pair<string,int>(s,ID)); }
+	void SortPluginList(void)
+		{ std::sort(m_PluginNameList.begin(), m_PluginNameList.end(), std::less< pair<string, int> >()); }
 	GraphSort* GetGraph() { return &m_Graph; }
 	
 	void Poll();

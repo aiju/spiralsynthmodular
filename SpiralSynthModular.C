@@ -579,6 +579,8 @@ void SynthModular::LoadPlugins(string pluginPath)
 	if (PlugGrp==m_PluginGroupMap.end()) PlugGrp=m_PluginGroupMap.begin();
         m_GroupTab->value(PlugGrp->second);
 
+	m_Canvas->SortPluginList();
+
 	Splash->hide();
 	delete Splash;
 }
