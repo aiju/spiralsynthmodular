@@ -103,10 +103,9 @@ SpiralPluginGUI(w,h,o,ch)
         m_Colour = (Fl_Color)Info->GUI_COLOUR;
         //m_Colour2 = (Fl_Color)Info->SCOPE_BG_COLOUR;
 
-        m_Scroll = new Fl_Scroll(0, 20, w, h-50, "");
+        m_Scroll = new Fl_Scroll(10, 20, w-10, h-50, "");
 	m_Scroll->type(Fl_Scroll::VERTICAL_ALWAYS);
 	m_Scroll->box(FL_NO_BOX);
-	m_Scroll->position(0,0);
 	add(m_Scroll);
 
 	m_Main = new Fl_Pack(0,20,w,h-50,"");
