@@ -15,6 +15,7 @@ class RWLock {
 		pthread_mutex_t mutex;
 		pthread_cond_t cond;
 		int readers, writers, wrwait;
+		pthread_t writer;
 };
 
 class RLocker {

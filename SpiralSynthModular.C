@@ -113,7 +113,7 @@ void SynthModular::ClearUp()
 {
 	PauseAudio();
 
-	m_DeviceWinMap_lock.wlock();
+	WLocker wlocker(&m_DeviceWinMap_lock);
 	for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin();
 		i!=m_DeviceWinMap.end(); i++)
 	{
@@ -137,7 +137,6 @@ void SynthModular::ClearUp()
 	m_Canvas->Clear();
 	m_DeviceWinMap.clear();
 	m_NextID=0;
-	m_DeviceWinMap_lock.wunlock();
 
 	ResumeAudio();
 }
@@ -162,7 +161,7 @@ void SynthModular::Update()
 	m_DeviceWinMap_lock.runlock();
 	
 	if(morituri > 0){
-		m_DeviceWinMap_lock.wlock();
+		WLocker wlocker(&m_DeviceWinMap_lock);
 		for(map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); )
 		{
 			if (i->second->m_Device && i->second->m_Device->IsDead())			
@@ -177,7 +176,6 @@ void SynthModular::Update()
 			}
 			i++;
 		}
-		m_DeviceWinMap_lock.wunlock();
 	}
 
 	RLocker rlocker(&m_DeviceWinMap_lock);
@@ -243,48 +241,46 @@ void SynthModular::UpdatePluginGUIs()
 	}
 	m_DeviceWinMap_lock.runlock();
 	
-	if(!morituri) goto out;
-
-	m_DeviceWinMap_lock.wlock();
-	for (map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); ){
-		if (i->second->m_DeviceGUI && i->second->m_DeviceGUI->Killed())
-		{
-			bool erase = true;
-			
-			//Stop processing of audio if any
-			if (i->second->m_Device)
+	if(morituri){
+		WLocker wlocker(&m_DeviceWinMap_lock);
+		for (map<int,DeviceWin*>::iterator i=m_DeviceWinMap.begin(); i!=m_DeviceWinMap.end(); ){
+			if (i->second->m_DeviceGUI && i->second->m_DeviceGUI->Killed())
 			{
-				if (i->second->m_Device->Kill());
-				erase = false;
-			}			
+				bool erase = true;
+				
+				//Stop processing of audio if any
+				if (i->second->m_Device)
+				{
+					if (i->second->m_Device->Kill());
+					erase = false;
+				}			
+		
+				//Clear GUI Device
+				i->second->m_DeviceGUI->Clear();
 	
-			//Clear GUI Device
-			i->second->m_DeviceGUI->Clear();
-
-			// Hide Device GUI FIRST
-			if (i->second->m_DeviceGUI->GetPluginWindow())
-			{
-				i->second->m_DeviceGUI->GetPluginWindow()->hide();
+				// Hide Device GUI FIRST
+				if (i->second->m_DeviceGUI->GetPluginWindow())
+				{
+					i->second->m_DeviceGUI->GetPluginWindow()->hide();
+				}
+	
+				//Remove Device GUI from canvas
+				m_Canvas->RemoveDevice(i->second->m_DeviceGUI);
+	
+				//Delete Device GUI - must delete here or sometimes plugin will randomly crash
+				delete i->second->m_DeviceGUI;
+				i->second->m_DeviceGUI = NULL;
+	
+				//Erase from winmap if no audio to do it
+				if (erase){
+					m_DeviceWinMap.erase(i++);
+					continue;
+				}
 			}
-
-			//Remove Device GUI from canvas
-			m_Canvas->RemoveDevice(i->second->m_DeviceGUI);
-
-			//Delete Device GUI - must delete here or sometimes plugin will randomly crash
-			delete i->second->m_DeviceGUI;
-			i->second->m_DeviceGUI = NULL;
-
-			//Erase from winmap if no audio to do it
-			if (erase){
-				m_DeviceWinMap.erase(i++);
-				continue;
-			}
+			i++;
 		}
-		i++;
 	}
-	m_DeviceWinMap_lock.wunlock();
 
-out:
 	m_Canvas->Poll();
 }
 
