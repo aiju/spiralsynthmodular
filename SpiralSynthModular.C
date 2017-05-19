@@ -397,6 +397,8 @@ SpiralWindowType *SynthModular::CreateWindow()
 
 	m_SettingsWindow = new SettingsWindow;
 	m_SettingsWindow->RegisterApp(this);
+	
+	Fl_Tooltip::size(12);
 
 	return m_TopWindow;
 }
@@ -538,8 +540,8 @@ void SynthModular::LoadPlugins(string pluginPath)
 				the_group=gi->second;
 			}
                         NewButton->type(0);
-			//NewButton->box(FL_NO_BOX);
-			//NewButton->down_box(FL_NO_BOX);
+			NewButton->box(FL_NO_BOX);
+			NewButton->down_box(FL_NO_BOX);
 			//NewButton->color(SpiralInfo::GUICOL_Button);
 			//NewButton->selection_color(SpiralInfo::GUICOL_Button);
 			the_group->add(NewButton);

@@ -76,13 +76,13 @@ m_Minimised (true)
 	m_MiniHeight=h();
 
 	m_DragBar = new Fl_DragBar(Info.XPos, Info.YPos, Info.Width+PortGroupWidth*2, TitleBarHeight, m_Name.c_str());
-	m_DragBar->labelsize(10);
+	m_DragBar->labelsize(12);
 	m_DragBar->type(Fl_DragBar::FLDRAG);
 	m_DragBar->color(SpiralInfo::GUICOL_Device);
 
 	m_Menu = new Fl_Menu_Button(x(),y(),w(),h(),"");
 	m_Menu->type(Fl_Menu_Button::POPUP3);
-	m_Menu->textsize(8);
+	m_Menu->textsize(12);
 
 	m_Menu->add("rename", 0, (Fl_Callback*)cb_Rename,this);
 	m_Menu->add("delete", 0, (Fl_Callback*)cb_Delete,this);

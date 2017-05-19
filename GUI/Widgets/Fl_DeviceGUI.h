@@ -40,9 +40,9 @@
 
 using namespace std;
 
-static const int TitleBarHeight = 12;
-static const int PortGroupWidth = 12;
-static const int PortSize=6;
+static const int TitleBarHeight = 18;
+static const int PortGroupWidth = 16;
+static const int PortSize=8;
 
 class Fl_PortButton : public Fl_Button {
    public:
