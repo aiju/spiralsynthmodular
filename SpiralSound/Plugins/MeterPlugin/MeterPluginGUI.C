@@ -108,7 +108,7 @@ void MeterPluginGUI::draw() {
     Meter->value (datum);
     Meter->redraw();
     // Yeuck - have I REALLY used stdio for that - this is supposed to be C++
-    //snprintf (label_buf, 64, "%1.5f", *m_Data);
+    snprintf (label_buf, 64, "%+1.5f", *m_Data);
     char* c = label_buf;
     for (int display=0; display<8; display++) {
       Digits[display] -> dp (off);
@@ -140,9 +140,9 @@ void MeterPluginGUI::UpdateValues (SpiralPlugin* o) {
 void MeterPluginGUI::SetMinMax (float NewMin, float NewMax) {
   m_Min = NewMin;
   m_Max = NewMax;
-  snprintf (label_buf, 64, "%1.5f", m_Min);
+  snprintf (label_buf, 64, "%+1.5f", m_Min);
   MinBox->value (label_buf);
-  snprintf (label_buf, 64, "%1.5f", m_Max);
+  snprintf (label_buf, 64, "%+1.5f", m_Max);
   MaxBox->value (label_buf);
   if (MMMode->value ()) {
     Meter->minimum (m_Min);
